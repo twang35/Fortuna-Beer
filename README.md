@@ -21,7 +21,7 @@ Akshay:
 - Different color schemes for wheel
 - Look of site/Frontend
 
-Fei:
+Fei Gao:
 - How to pass info into wheel and generate it from a list
 
 Tony:
