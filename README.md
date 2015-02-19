@@ -16,11 +16,14 @@ A Whole New Spin
 - Trello (Address: )
 
 **Tasks for each member:**
+
 Akshay:
 - Different color schemes for wheel
 - Look of site/Frontend
+
 Fei:
 - How to pass info into wheel and generate it from a list
+
 Tony:
 - Build todo list
 - Backend
