@@ -25,6 +25,7 @@ Akshay:
 
 Fei Gao:
 - How to pass info from BreweryDB
+- Middleware
 
 Tony:
 - Set up AWS Server
