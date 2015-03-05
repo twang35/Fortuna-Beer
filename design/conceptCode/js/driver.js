@@ -15,3 +15,11 @@ function pull() {
 function randBeer() {
 	document.getElementById('chosen_one').innerHTML = beers[Math.floor(Math.random()*beers.length)];
 }
+
+function getRandomBeer() {
+    $.post( 
+          'php/BreweryDB.php'
+       ).success(function(resp){
+            document.getElementById('randomBeerInfo').innerHTML = resp;
+       });
+}
