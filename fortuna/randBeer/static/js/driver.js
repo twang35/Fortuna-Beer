@@ -7,12 +7,15 @@ var beers = ["Heady Topper", "Pliny the Younger", "Zombie Dust", "Good Morning",
 
 function getRandomBeer() {
 	$.ajax({
-		url: "http://api.brewerydb.com/v2/beer/random?key=0975ed5b18f4fb7e0de63b3e84fdd17a",
+		url: "/Users/Fei/Documents/Blind-Bet/fortuna/randBeer/management/commands/randBeer.py",
+		type: 'POST',
 		dataType: 'json',
 		success: function(results){
 			var name = results.response.name;
+			var obj = JSON.parse(results)
 			var description = results.response.description;
-			$('#randomBeerInfo').append(name + "" + description);
+			$('#randomBeerInfo').append(obj.description);
+
 		},
 	    error: function(XMLHttpRequest, textStatus, errorThrown) { 
 	        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
