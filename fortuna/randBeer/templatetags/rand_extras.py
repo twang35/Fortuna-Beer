@@ -6,7 +6,7 @@ import json
 register = template.Library()
 
 
-apikey = '1ffcd2c6ba06087e62ac1a9dc1f73dfd'
+apikey = '5b3814c58c765b0d58b67d3525c4850b'
 
 from brewerydb.brewerydb import *
 BreweryDb.configure(apikey)
