@@ -23,17 +23,30 @@ beerInfo = getRand()
 
 @register.filter
 def getName(value):
-	return beerInfo['data']['name']
+	if 'name' in beerInfo['data']:
+		return beerInfo['data']['name']
+	return ''
 
 @register.filter
 def getStyle(value1):
-	return beerInfo['data']['style']['category']['name']
+	if 'style' in beerInfo['data']:
+		if 'category' in beerInfo['data']['style']:
+			if 'name' in beerInfo['data']['style']['category']:
+				return beerInfo['data']['style']['category']['name']
+	return ''
 
 @register.filter 
 def getAbv(value):
-	return beerInfo['data']['abv']
+	if 'abv' in beerInfo['data']:
+		return beerInfo['data']['abv']
+	return ''
 
 @register.filter 
 def getDescription(value):
-	return beerInfo['data']['description']
-
+	global beerInfo
+	if 'description' in beerInfo['data']:
+		foo = beerInfo['data']['description']
+		beerInfo = getRand()
+		return foo
+	beerInfo = getRand()
+	return ''
