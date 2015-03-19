@@ -958,9 +958,9 @@
 
 	#banner {
 		background: url("images/overlay.png"), url("../images/banner.jpg");
-		background-position: center;
+		background-position: absolute;
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: auto;
 		color: #ffffff;
 		padding: 16em 0em 14em;
 		text-align: center;
