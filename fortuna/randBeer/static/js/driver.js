@@ -26,7 +26,7 @@ var beers = ["Heady Topper", "Pliny the Younger", "Zombie Dust", "Good Morning",
 
 function getRandomBeer() {
 	$.ajax({
-		url: "http://otter.topsy.com/urlinfo.js?url=http://api.brewerydb.com/v2/beer/random?key=0975ed5b18f4fb7e0de63b3e84fdd17a",
+		url: "http://api.brewerydb.com/v2/beer/random?key=0975ed5b18f4fb7e0de63b3e84fdd17a",
 		dataType: 'jsonp',
 		success: function(results){
 			var name = results.response.name;
