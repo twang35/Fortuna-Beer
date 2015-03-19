@@ -6,14 +6,14 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+		<script src="{{ STATIC_URL }}js/skel.min.js"></script>
+		<script src="{{ STATIC_URL }}js/skel-layers.min.js"></script>
+		<script src="{{ STATIC_URL }}js/init.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/skel.css" />
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/style-xlarge.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
@@ -21,12 +21,12 @@
 
 		<!-- Header -->
 			<header id="header">
-				<h1><a href="index.html">Fortuna Beer</a></h1>
+				<h1><a href="{{ STATIC_URL }}index.html">Fortuna Beer</a></h1>
 				<nav id="nav">
 					<ul>
 						<!-- <li><a href="index.html">Menu</a></li> -->
-						<li><a href="generic.html">Create Account</a></li>
-						<li><a href="elements.html">Log In</a></li>
+						<li><a href="{{ STATIC_URL }}generic.html">Create Account</a></li>
+						<li><a href="{{ STATIC_URL }}elements.html">Log In</a></li>
 					</ul>
 				</nav>
 			</header>
