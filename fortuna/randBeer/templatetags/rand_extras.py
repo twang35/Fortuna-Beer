@@ -17,7 +17,5 @@ def getBeer(value):
 
 @register.filter
 def getRand(value):
-	decode = requests.get("http://api.brewerydb.com/v2/beer/oeGSxs?key=5b3814c58c765b0d58b67d3525c4850b&format=json").json()
-	print decode
 
 	return requests.get("http://api.brewerydb.com/v2/beer/oeGSxs?key=5b3814c58c765b0d58b67d3525c4850b&format=json").json()['data']['available']
