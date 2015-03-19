@@ -37,3 +37,8 @@ def getAbv(value):
 def getDescription(value):
 	return beerInfo['data']['description']
 
+
+# return requests.get("http://api.brewerydb.com/v2/beer/oeGSxs?key=5b3814c58c765b0d58b67d3525c4850b&format=json").json()['data']['available']
+
+def test_fun():
+	return "hello"
