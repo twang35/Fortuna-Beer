@@ -957,12 +957,12 @@
 /* Banner */
 
 	#banner {
-		background: url("images/overlay.png"), url("../images/banner.jpg");
-		background-position: absolute;
+		background: url("../images/banner.jpg");
+		background-position: center;
 		background-repeat: no-repeat;
-		background-size: auto;
+		background-size: 100%;
 		color: #ffffff;
-		padding: 16em 0em 14em;
+		padding: 14em 0em 12em;
 		text-align: center;
 	}
 
