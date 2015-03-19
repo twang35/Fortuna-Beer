@@ -1,3 +1,4 @@
+{% load rand_extras %}
 
 	<head>
 		<meta charset="UTF-8">
@@ -54,8 +55,10 @@
 							<button type="button" class="button big" onclick="getRandomBeer()">Get Random Beer</button>
 						</div>
 
- 						<div 
-						<div id="randomBeerInfo">
+ 						<div id="randomBeerInfo">
+ 						{% block content %}
+ 							{{value|getRand}}
+ 						{% endblock %}
 						</div>
 						<!-- <a href="#" class="button big">Find a Beer</a> -->
 					</li>
