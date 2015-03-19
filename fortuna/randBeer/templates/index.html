@@ -50,15 +50,32 @@
 				</div> -->
 				<ul class="actions">
 					<li>
-					
 						<div class="middle" id="randomButton">
 							<button type="button" class="button big" onclick="getRandomBeer()">Get Random Beer</button>
 						</div>
 
  						<div id="randomBeerInfo">
- 						{% block content %}
- 							{{value|getRand}}
- 						{% endblock %}
+ 							<div id="randomBeerName">
+	 							{% block name %}
+	 								{{value|getName}}
+	 							{% endblock %}
+							</div>
+							<div id="randomBeerStyle">
+	 							{% block style %}
+	 								{{value1|getStyle}}
+	 							{% endblock %}
+							</div>
+							<div id="randomBeerAbv">
+	 							{% block abv %}
+	 								{{value|getAbv}}
+	 							{% endblock %}
+							</div>
+							<div id="randomBeerDescription">
+	 							{% block description %}
+	 								{{value|getDescription}}
+	 							{% endblock %}
+							</div>
+ 							
 						</div>
 						<!-- <a href="#" class="button big">Find a Beer</a> -->
 					</li>
