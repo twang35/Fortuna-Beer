@@ -8,6 +8,7 @@
 		<meta name="keywords" content="" />
 		<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}js/driver.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}dajax/jquery.dajax.core.js"></script>
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/skel.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/style-xlarge.css" />
@@ -41,6 +42,9 @@
  						{% block content %}
  							{{ value|getRand }}
  						{% endblock %}
+
+ 						<input type="text" value="" id="result">
+						<input type="button" onclick="Dajaxice.examples.randomize(Dajax.process)" value="Random!">
 						</div>
 						<!-- <a href="#" class="button big">Find a Beer</a> -->
 					</li>
