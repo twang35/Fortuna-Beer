@@ -12,9 +12,8 @@ from brewerydb.brewerydb import *
 BreweryDb.configure(apikey)
 
 @register.filter
-@stringfilter
-def getBeer(value, args):
-	return BreweryDb.beer(value)
+def getBeer(value):
+	return value['data']['available']
 
 def getRand():
 	return requests.get("http://api.brewerydb.com/v2/beer/random?key=5b3814c58c765b0d58b67d3525c4850b&format=json").json()
@@ -37,3 +36,4 @@ def getAbv(value):
 @register.filter 
 def getDescription(value):
 	return beerInfo['data']['description']
+
