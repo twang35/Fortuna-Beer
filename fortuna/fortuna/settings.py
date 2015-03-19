@@ -43,8 +43,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'brewerydb',
     'randBeer',
-    'dajax',
-    'dajaxice',
 )
 
 MIDDLEWARE_CLASSES = (
