@@ -20,8 +20,8 @@
 				<nav id="nav">
 					<ul>
 						<!-- <li><a href="index.html">Menu</a></li> -->
-						<!-- <li><a href="{{ STATIC_URL }}generic.html">Create Account</a></li>
-						<li><a href="{{ STATIC_URL }}elements.html">Log In</a></li> -->
+						<li><a href="{{ STATIC_URL }}generic.html">Create Account</a></li>
+						<li><a href="{{ STATIC_URL }}elements.html">Log In</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -36,13 +36,14 @@
 							<button type="button" class="button big" onclick="window.location.reload()">Get Random Beer</button>
 						</div>
 
- 						<div id="randomBeerInfo">
+ 						<div id="randomBeerInfo" >
 
  							<div id="randomBeerName">
 	 							{% block name %}
 	 								{{value|getName}}
 	 							{% endblock %}
 							</div>
+
 							<div id="randomBeerStyle">
 	 							{% block style %}
 	 								{{value1|getStyle}}
@@ -53,11 +54,12 @@
 	 								{{value|getAbv}}
 	 							{% endblock %}
 							</div>
-							<div id="randomBeerDescription">
+							<div id="randomBeerDescription" >
 	 							{% block description %}
 	 								{{value|getDescription}}
 	 							{% endblock %}
 							</div>
+						</div>
 						</div>
 						<!-- <a href="#" class="button big">Find a Beer</a> -->
 					</li>
