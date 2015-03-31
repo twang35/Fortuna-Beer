@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from randBeer import views
+from randBeer import views as rViews
+from suggest import views as sViews
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,6 +10,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.index, name='index'),
-    url(r'^favorites/', views.favorites, name='favorites'),
+    url(r'^$', rViews.index, name='index'),
+    url(r'^favorites/', rViews.favorites, name='favorites'),
+    url(r'^suggest/', sViews.suggest, name='suggest'),
 )

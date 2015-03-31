@@ -1,0 +1,34 @@
+	<head>
+		<meta charset="UTF-8">
+		<title>Fortuna Beer</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/driver.js"></script>
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/skel.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style-xlarge.css" />
+	</head>
+	<body class="landing">
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="/">Fortuna Beer</a></h1>
+				<nav id="nav">
+					<ul>
+						<!-- <li><a href="index.html">Menu</a></li> -->
+						<li><a href="{{ STATIC_URL }}generic.html">Create Account</a></li>
+						<li><a href="{{ STATIC_URL }}elements.html">Log In</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		{% block main %}
+			stuff
+		{% endblock %}
+
+
+	</body>
+
+	
