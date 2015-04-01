@@ -1,2 +1,4 @@
 
 *.pyc
+
+fortuna/db.sqlite3
