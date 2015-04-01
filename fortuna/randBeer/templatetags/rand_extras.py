@@ -17,36 +17,34 @@ def getBeer(value):
 
 def getRand():
 	return requests.get("http://api.brewerydb.com/v2/beer/random?key=5b3814c58c765b0d58b67d3525c4850b&format=json").json()
-	
-beerInfo = getRand()
 
+info = {}
 
 @register.filter
 def getName(value):
-	if 'name' in beerInfo['data']:
-		return beerInfo['data']['name']
-	return ''
-
-@register.filter
-def getStyle(value1):
+	beerInfo = getRand()
+	info['name'] = beerInfo['data']['name'];
 	if 'style' in beerInfo['data']:
 		if 'category' in beerInfo['data']['style']:
 			if 'name' in beerInfo['data']['style']['category']:
-				return beerInfo['data']['style']['category']['name']
-	return ''
+				info['style'] = beerInfo['data']['style']['category']['name']
+				if 'abv' in beerInfo['data']:
+					info['abv'] = beerInfo['data']['abv']
+					if 'description' in beerInfo['data']:
+						info['description'] = beerInfo['data']['description']
+						return "Name: " + info['name']
+
+	return getName(value)
+
+
+@register.filter
+def getStyle(value):
+	return "Style: " + info['style']
 
 @register.filter 
 def getAbv(value):
-	if 'abv' in beerInfo['data']:
-		return beerInfo['data']['abv']
-	return ''
+	return "ABV: " + info['abv'] + "%"
 
 @register.filter 
 def getDescription(value):
-	global beerInfo
-	if 'description' in beerInfo['data']:
-		foo = beerInfo['data']['description']
-		beerInfo = getRand()
-		return foo
-	beerInfo = getRand()
-	return ''
+	return info['description']
