@@ -13,4 +13,7 @@ urlpatterns = patterns('',
     url(r'^$', rViews.index, name='index'),
     url(r'^favorites/', rViews.favorites, name='favorites'),
     url(r'^suggest/', sViews.suggest, name='suggest'),
+    url(r'^signup$', rViews.signup), 
+    url(r'^login$', rViews.login_view),  
+    url(r'^logout$', rViews.logout_view), 
 )
