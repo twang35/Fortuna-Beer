@@ -3,14 +3,16 @@
 {% load rand_extras %}
 
 {% block login %}
-	<div style="text-align: right">
-		<form action="/login" method="post">{% csrf_token %}
+		<ul class="nav">
+		    <br><br><br><br>
+			<li class="active"><a href="/"><h2>Home<h2></a></li> 
+			<form action="/login" method="post">{% csrf_token %}
 	        {% for field in auth_form %}
 	        {{ field }}
 	        {% endfor %}
+		    <br><br><br>
 	        <input type="submit" id="btnLogIn" value="Log In">
 	    </form>
-	</div>
 {% endblock %}
 
 {% block main %}
