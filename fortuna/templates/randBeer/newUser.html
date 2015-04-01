@@ -3,26 +3,16 @@
 {% load rand_extras %}
 
 {% block login %}
-		<div class="nav">
+		<ul class="nav">
 		    <br><br><br><br>
-			<div class="active"><a href="/"><h2>Home</h2></a></div> 
+			<li class="active"><a href="/"><h2>Home<h2></a></li> 
 			<form action="/login" method="post">{% csrf_token %}
-		        {% for field in auth_form %}
-		        {{ field }}
-		        {% endfor %}
-			    <br><br><br>
-		        <input type="submit" id="btnLogIn" value="Log In">
-	    	</form>
-	    </div>
-	    
-	    <div class="middle" id="loginForm">
-			<form action="/signup" method="post">{% csrf_token %}
-	            {% for field in user_form %}
-	            {{ field }}
-	            {% endfor %}
-	            <input type="submit" value="Create Account">
-    		</form>
-		</div>
+	        {% for field in auth_form %}
+	        {{ field }}
+	        {% endfor %}
+		    <br><br><br>
+	        <input type="submit" id="btnLogIn" value="Log In">
+	    </form>
 {% endblock %}
 
 {% block main %}
@@ -30,37 +20,46 @@
 <section id="banner">
 	<h2>Fortuna Beer</h2>
 	<p>May the odds be ever in your favor</p>
-	<div class="actions">
-		<div class="middle" id="randomButton">
-			<button type="button" class="button big" onclick="window.location.reload()">Get Random Beer</button>
-		</div>
-
-		<div id="randomBeerInfo" >
-			<div id="randomBeerName">
-				{% block name %}
-					{{value|getName}}
-				{% endblock %}
+	<ul class="actions">
+		<li>
+			<div class="middle" id="randomButton">
+				<button type="button" class="button big" onclick="window.location.reload()">Get Random Beer</button>
 			</div>
 
-			<div id="randomBeerStyle">
-					{% block style %}
-						{{value1|getStyle}}
+			<div id="randomBeerInfo" >
+				<div id="randomBeerName">
+					{% block name %}
+						{{value|getName}}
 					{% endblock %}
-			</div>
-			<div id="randomBeerAbv">
-					{% block abv %}
-						{{value|getAbv}}
-					{% endblock %}
-			</div>
-			<div id="randomBeerDescription" >
-					{% block description %}
-						{{value|getDescription}}
-					{% endblock %}
-			</div>
-		</div>
-		<!-- <a href="#" class="button big">Find a Beer</a> -->
+				</div>
 
-		
-	</div>
+				<div id="randomBeerStyle">
+						{% block style %}
+							{{value1|getStyle}}
+						{% endblock %}
+				</div>
+				<div id="randomBeerAbv">
+						{% block abv %}
+							{{value|getAbv}}
+						{% endblock %}
+				</div>
+				<div id="randomBeerDescription" >
+						{% block description %}
+							{{value|getDescription}}
+						{% endblock %}
+				</div>
+			</div>
+			<!-- <a href="#" class="button big">Find a Beer</a> -->
+
+			<div class="middle" id="loginForm">
+				<form action="/signup" method="post">{% csrf_token %}
+		            {% for field in user_form %}
+		            {{ field }}
+		            {% endfor %}
+		            <input type="submit" value="Create Account">
+        		</form>
+			</div>
+		</li>
+	</ul>
 </section>
 {% endblock %}
