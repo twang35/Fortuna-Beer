@@ -222,6 +222,8 @@ a {
 	margin-top:32px;
 }
 
+#
+
 #nav {
     background-color: #000000;
     font-family: Avenir,Helvetica;
@@ -293,6 +295,11 @@ a {
 }
 
 #loginForm {
+  padding-top: 10%;
+  color: black;
+}
+
+#signupForm {
   padding-top: 20%;
   color: black;
 }
