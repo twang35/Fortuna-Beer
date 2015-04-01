@@ -10,5 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='index'),
+    url(r'^$', views.attributes, name = 'attributes'),
+    url(r'^$', views.userPage, name = 'userPage'),
     url(r'^favorites/', views.favorites, name='favorites'),
 )

@@ -8,26 +8,20 @@
 		<meta name="keywords" content="" />
 		<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}js/driver.js"></script>
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/skel.css" />
+		<!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/skel.css" />
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/style-xlarge.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style-xlarge.css" /> -->
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css" />
+<!-- 		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" /> -->
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css" />
+		<meta name = "viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	<body class="landing">
-
-		<!-- Header -->
-			<header id="header">
-				<h1><a href="/">Fortuna Beer</a></h1>
-				<nav id="nav">
-					<ul>
-						<!-- <li><a href="index.html">Menu</a></li> -->
-						<li><a href="{{ STATIC_URL }}generic.html">Create Account</a></li>
-						<li><a href="{{ STATIC_URL }}elements.html">Log In</a></li>
-					</ul>
-				</nav>
-			</header>
-
-		<!-- Banner -->
-			<section id="banner">
+	<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class = "span5">
+				<section id="banner">
 				<h2>Fortuna Beer</h2>
 				<p>May the odds be ever in your favor</p>
 				<ul class="actions">
@@ -60,13 +54,50 @@
 	 							{% endblock %}
 							</div>
 						</div>
-						</div>
 						<!-- <a href="#" class="button big">Find a Beer</a> -->
 					</li>
 				</ul>
 			</section>
+			</div>
+			</div>			
+			</body>
+			<div class = "span5">
+				<h1><a href="/">Fortuna Beer</a></h1>
+				<nav id="nav">
+					<ul>
+						<a href = "#registerModal" role="button" class = "btn" data-toggle = "modal"> Create Account</a>
 
+						<div id = "registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+								<h1> Create an Account</h1>
+							</div>
+							<form id = "register" name = "register" method = "post" action = "index.html">
+								<label for = "fname"> First Name: </label>
+								<input type = "text" name = "fname" id = "fname" class = "txtfield" tabindex="-1">
 
-	</body>
+								<label for = "lname"> Last Name: </label>
+								<input type = "text" name = "lname" id = "lname" class = "txtfield" tabindex="-1">
+
+								<label for = "email"> Email: </label>
+								<input type = "text" name = "email" id = "email" class = "txtfield" tabindex="-1">
+
+								<label for = "username"> Username: </label>
+								<input type = "text" name = "username" id = "username" class = "txtfield" tabindex="1">
+
+								<label for = "password"> Password: </label>
+								<input type = "password" name = "password" id = "password" class = "txtfield" tabindex = "2">
+
+								<label for = "password"> Confirm Password: </label>
+								<input type = "password" name = "password" id = "password" class = "txtfield" tabindex = "2">
+
+								<div class = "center"><input type = "submit" name = "registerbtn" id = "registerbtn" class = "button small" value = "register" tabindex = "3"></div>
+							</form>
+						</div>
+						<li><a href="attributes.html">Create Account</a></li>
+						<li><a href="userPage.html">Log In</a></li>
+					</ul>
+				</nav>
+			</div>
 
 	
