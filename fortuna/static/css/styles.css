@@ -1,11 +1,14 @@
 /* move special fonts to HTML head for better performance */
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700');
-
+@font-face {
+    font-family: Avenir;
+    src: url(fonts/Avenir-Book.ttf);
+}
 
 /* custom template */
 html, body {
    height: 100%;
-   font-family:'Arial',arial,sans-serif;
+   font-family:Avenir,'Arial',arial,sans-serif;
 }
 
   input[type="submit"],
@@ -94,6 +97,15 @@ html, body {
     .button.big {
       font-size: 1.35em;
       background-color: transparent;
+      border: 1px solid #ffffff;
+    }
+
+    input[type="submit"].big:hover,
+    input[type="reset"].big:hover,
+    input[type="button"].big:hover,
+    .button.big:hover {
+      background-color: #000000;
+      opacity: 80%;
       border: 1px solid #ffffff;
     }
 
@@ -200,7 +212,7 @@ a {
     position: absolute;
     right: 0;
     top: 0;
-    background-image:url(../images/banner.jpg);
+    /*background-image:url(../images/banner.jpg);*/
     background-size:auto;
     background-attachment:fixed;
     background-repeat: no-repeat;
@@ -212,7 +224,7 @@ a {
 
 #nav {
     background-color: #000000;
-    font-family: Helvetica;
+    font-family: Avenir,Helvetica;
 }
 #nav_wrapper {
     width: 800px;
@@ -242,7 +254,7 @@ a {
 }
 
 #main {
-    background-image:url(../images/banner4.jpg);
+    background-image:url(../images/banner-blur.jpg);
     background-size: 100% 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -259,7 +271,8 @@ a {
     color:#FFFFFF;
     background-color:transparent;
     opacity:10%;
-	text-shadow:1px 0 1px #888888;
+	  text-shadow:1px 0 1px #888888;
+    background-color: rgb(77, 47, 0);
 }
 #sidebar a.logo {
   display:block;
@@ -278,6 +291,12 @@ a {
 #sidebar-footer {
   position:absolute;bottom:0px;
 }
+
+#loginForm {
+  padding-top: 20%;
+  color: black;
+}
+
 #footer {
   margin-bottom:0px;
 }
@@ -304,8 +323,8 @@ a {
 /* bootstrap overrides */
 
 h1,h2,h3 {
-   font-weight:800;
-   font-family:'Helvetica',arial,sans-serif;
+   font-weight:300;
+   font-family: Avenir,'Helvetica',arial,sans-serif;
 }
 
 .jumbotron {
@@ -328,5 +347,5 @@ h1,h2,h3 {
 }
 
 small.text-muted {
-  font-family:courier,courier-new,monospace;
+  font-family: Avenir,courier,courier-new,monospace;
 }
