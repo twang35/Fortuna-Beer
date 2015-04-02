@@ -36,7 +36,7 @@
 		<div class = "nav_center">
 			<form action="/login" method="post" id="loginForm">{% csrf_token %}
 		        {% for field in auth_form %}
-		        {{ field }}
+		        	{{ field }}
 		        {% endfor %}
 			    <br><br>
 		        <input type="submit" id="btnLogIn" value="Log In">

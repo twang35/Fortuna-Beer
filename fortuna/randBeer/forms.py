@@ -5,8 +5,6 @@ from randBeer.models import Beer
 
 class UserCreateForm(UserCreationForm):
     email = forms.EmailField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-signup', 'placeholder': 'Email'}))
-    first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-signup', 'placeholder': 'First Name'}))
-    last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-signup', 'placeholder': 'Last Name'}))
     username = forms.CharField(widget=forms.widgets.TextInput(attrs={'class': 'form-signup', 'placeholder': 'Username'}))
     password1 = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'class': 'form-signup', 'placeholder': 'Password'}))
     password2 = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'class': 'form-signup', 'placeholder': 'Password Confirmation'}))
@@ -19,7 +17,7 @@ class UserCreateForm(UserCreationForm):
         return form
  
     class Meta:
-        fields = ['email', 'username', 'first_name', 'last_name', 'password1',
+        fields = ['email', 'username', 'password1',
                   'password2']
         model = User
 
