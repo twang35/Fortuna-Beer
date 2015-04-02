@@ -221,7 +221,7 @@ a {
 }
 
 .column .padding {
-    padding: 20px;
+    padding: 0px;
 }
 
 .box {
@@ -403,6 +403,16 @@ a {
   }
 }
 
+.nav-header {
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  padding-top: 30px;
+  /*border-bottom:1px solid #eeeeee;*/
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  text-align: center;
+}
 
 
 

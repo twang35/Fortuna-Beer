@@ -11,12 +11,17 @@
 		<script type="text/javascript" src="{{ STATIC_URL}}js/driver.js"></script>
 		<script src="{{ STATIC_URL }}js/jquery.min.js" type="text/javascript"></script>
 	</head>
+
 	<body>
+
 		<div class="wrapper" font color = "black">
 		    <div class="box">
 		        <div class="row">
 		            
 		            <div class = "column col-sm-9" id="main">
+		            	<div class = "nav-header">
+		            		Welcome to Fortuna Beer
+		            	</div>
 		            	<div class="padding">
                    			<div class="full col-sm-9">
 					           	{% block main %}
@@ -29,7 +34,7 @@
 		            <div class="column col-sm-3" id="sidebar">
 		            	{% block login %}
 		                <div class="nav">
-		                	<br><br>
+		                	<br>
 		                	<div class = "nav_center_border">
 								<h1>Fortuna Beer</h1>
 								<p>May the odds be ever in your favor</p>
