@@ -14,3 +14,5 @@ b.button(:id => 'btnLogOut').click
 b.button(:id => 'btnLogIn').wait_until_present
 
 puts "Success"
+
+b.close

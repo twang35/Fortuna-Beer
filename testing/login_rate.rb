@@ -14,3 +14,5 @@ b.radio(:id => 'id_rating_3').set
 b.button(:id => 'btnRate').click
 
 puts "Success"
+
+b.close
