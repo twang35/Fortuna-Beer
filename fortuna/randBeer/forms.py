@@ -35,7 +35,8 @@ class AuthenticateForm(AuthenticationForm):
         return form
 
 class BeerForm(forms.ModelForm):
-    rating = forms.CharField(label='Rating', required=True, widget=forms.widgets.Textarea(attrs={'class': 'beerRating'}))
+    CHOICES = (('1', '1 Star'), ('2', '2 Star'), ('3', '3 Star'), ('4', '4  Star'), ('5', '5 Star'))
+    rating = forms.ChoiceField(label='Rating', required=True, widget=forms.RadioSelect, choices=CHOICES)
 
     def is_valid(self):
         form = super(BeerForm, self).is_valid()
