@@ -22,7 +22,7 @@ info = {}
 defaultImage = "../../static/images/defaultImage.png"
 
 @register.filter
-def getName(value):
+def getNewName(value):
 	beerInfo = getRand()
 	info['name'] = beerInfo['data']['name'];
 	if 'style' in beerInfo['data']:
@@ -42,6 +42,9 @@ def getName(value):
 
 	return getName(value)
 
+@register.filter
+def getNewName(value):
+	return info['name']
 
 @register.filter
 def getStyle(value):
