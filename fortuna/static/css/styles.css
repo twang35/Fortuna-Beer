@@ -9,6 +9,7 @@
 html, body {
    height: 100%;
    font-family:Avenir,'Arial',arial,sans-serif;
+   overflow: hidden;
 }
 
   input[type="submit"],
