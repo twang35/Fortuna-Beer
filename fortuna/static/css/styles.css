@@ -100,10 +100,28 @@ html, body {
       border: 1px solid #ffffff;
     }
 
+    input[type="submit"].biggest,
+    input[type="reset"].biggest,
+    input[type="button"].biggest,
+    .button.biggest {
+      font-size: 2.2em;
+      background-color: transparent;
+      border: 1px solid #ffffff;
+    }
+
     input[type="submit"].big:hover,
     input[type="reset"].big:hover,
     input[type="button"].big:hover,
     .button.big:hover {
+      background-color: #000000;
+      opacity: 80%;
+      border: 1px solid #ffffff;
+    }
+
+    input[type="submit"].biggest:hover,
+    input[type="reset"].biggest:hover,
+    input[type="button"].biggest:hover,
+    .button.biggest:hover {
       background-color: #000000;
       opacity: 80%;
       border: 1px solid #ffffff;
@@ -198,7 +216,7 @@ a {
 
 .column {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     *zoom:1;
 }
 
@@ -218,16 +236,46 @@ a {
     background-repeat: no-repeat;
 }
 
+.form-actions {
+  padding: 19px 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-top: 1px solid #000000;
+  *zoom: 1;
+}
+
 .divider {
 	margin-top:32px;
 }
 
-#
+.floatLeft {
+  float: left;
+  margin: 0 5px 0 0;
+}
 
 #nav {
     background-color: #000000;
     font-family: Avenir,Helvetica;
 }
+
+.nav_center_border {
+    text-align: center;
+
+}
+
+.nav_line_break {
+  height: 1px;
+  color: #FFFFFF;
+  width: 100%;
+  border-radius: 1px;
+  border: 1px solid #ffffff;
+}
+
+.nav_center {
+  text-align: center;
+}
+
 #nav_wrapper {
     width: 800px;
     margin: 0 auto;
@@ -263,10 +311,23 @@ a {
 
     color:#FFFFFF;
 }
-#main .img-circle {
+
+.main_beerbutton {
+  text-align: center;
+}
+
+.main_alignLeft {
+  text-align: left;
+}
+
+.main_alignRight {
+  text-align: right;
+}
+
+.img-circle {
   margin-top:18px;
-  height:70px;
-  width:70px;
+  height:100px;
+  width:100px;
 }
 
 #sidebar, #sidebar a {
@@ -275,6 +336,7 @@ a {
     opacity:10%;
 	  text-shadow:1px 0 1px #888888;
     background-color: rgb(77, 47, 0);
+    overflow: hidden;
 }
 #sidebar a.logo {
   display:block;
@@ -295,13 +357,18 @@ a {
 }
 
 #loginForm {
-  padding-top: 10%;
+  padding-top: 5%;
+  padding-right: 20%;
+  padding-left: 20%;
   color: black;
+  text-align: center;
+  background: transparent;
 }
 
 #signupForm {
-  padding-top: 20%;
+  padding-top: 5%;
   color: black;
+  text-align: center;
 }
 
 #footer {
