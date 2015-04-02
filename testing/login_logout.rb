@@ -9,4 +9,8 @@ b.text_field(:id => 'login-password').set 'a'
 b.button(:id => 'btnLogIn').click
 b.button(:id => 'btnLogOut').wait_until_present
 
+b.button(:id => 'btnLogOut').click
+
+b.button(:id => 'btnLogIn').wait_until_present
+
 puts "Success"
