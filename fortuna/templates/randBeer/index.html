@@ -4,6 +4,14 @@
 
 {% block login %}
 	{{ block.super }}
+
+	<h1>Recently Rated</h1>
+	{% for beer in beers %}
+    	<p>
+    		Name: {{ beer.name }}
+    		Rating: {{ beer.rating }}
+    	</p>
+    {% endfor %}
 {% endblock %}
 
 {% block main %}
@@ -69,12 +77,6 @@
             <input type="submit" value="Rate!">
         </form>
         <br>
-        {% for beer in beers %}
-        	<p>
-        		Name: {{ beer.name }}
-        		Rating: {{ beer.rating }}
-        	</p>
-        {% endfor %}
 
 		</div>
 	</div>
