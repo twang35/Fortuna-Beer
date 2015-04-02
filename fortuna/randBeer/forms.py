@@ -4,12 +4,12 @@ from django import forms
 from randBeer.models import Beer
 
 class UserCreateForm(UserCreationForm):
-    email = forms.EmailField(required=True, widget=forms.widgets.TextInput(attrs={'placeholder': 'Email'}))
-    first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={'placeholder': 'First Name'}))
-    last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={'placeholder': 'Last Name'}))
-    username = forms.CharField(widget=forms.widgets.TextInput(attrs={'placeholder': 'Username'}))
-    password1 = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'placeholder': 'Password'}))
-    password2 = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'placeholder': 'Password Confirmation'}))
+    email = forms.EmailField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
+    first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
+    username = forms.CharField(widget=forms.widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    password1 = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+    password2 = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Confirmation'}))
  
     def is_valid(self):
         form = super(UserCreateForm, self).is_valid()
@@ -24,8 +24,8 @@ class UserCreateForm(UserCreationForm):
         model = User
 
 class AuthenticateForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.widgets.TextInput(attrs={'placeholder': 'Username'}))
-    password = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'placeholder': 'Password'}))
+    username = forms.CharField(widget=forms.widgets.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    password = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
  
     def is_valid(self):
         form = super(AuthenticateForm, self).is_valid()

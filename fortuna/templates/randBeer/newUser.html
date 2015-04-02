@@ -24,13 +24,15 @@
 	   		<h3> Join Us! </h3>
 	   		<h5> Save randomly generated beers, customize beer preferences, and more! </h5>
 	    	<div class="middle" id="signupForm">
-				<form action="/signup" method="post">{% csrf_token %}
-	        	    {% for field in user_form %}
-	         	   	{{ field }}
-	        	    {% endfor %}
-	           		<br><br>
-	            	<input type="submit" value="Create Account">
-    			</form>
+	    		<div class="input-group" align="center">
+					<form action="/signup" method="post">{% csrf_token %}
+		        	    {% for field in user_form %}
+		         	   		{{ field }}
+		        	    {% endfor %}
+		           		<br><br>
+		            	<input type="submit" value="Create Account">
+	    			</form>
+	    		</div>
 			</div>
 		</div>
 		<br><br>

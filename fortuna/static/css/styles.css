@@ -383,6 +383,10 @@ a {
   color: black;
 }
 
+.signup-form {
+  padding: 24px;
+}
+
 /* center and adjust the sidebar contents on smaller devices */
 @media (max-width: 768px) {
   #sidebar,#sidebar a.logo {
