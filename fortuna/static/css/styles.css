@@ -435,3 +435,21 @@ h1,h2,h3 {
 small.text-muted {
   font-family: Avenir,courier,courier-new,monospace;
 }
+
+#randomBeerInfo {
+  background-color: rgba(96, 96, 96, 0.6);
+  height: 256px;
+
+}
+
+#randomBeerLabel {
+  width: 256px;
+  height: 256px;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+img {
+  padding-right: 0px;
+  margin-right: 0px;
+}
