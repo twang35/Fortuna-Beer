@@ -16,5 +16,5 @@ urlpatterns = patterns('',
     url(r'^signup$', rViews.signup), 
     url(r'^login$', rViews.login_view),  
     url(r'^logout$', rViews.logout_view), 
-    url(r'^submit$', rViews.submit), 
+    url(r'^rate$', rViews.rate), 
 )

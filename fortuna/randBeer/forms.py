@@ -35,7 +35,6 @@ class AuthenticateForm(AuthenticationForm):
         return form
 
 class BeerForm(forms.ModelForm):
-    name = forms.CharField(label='Beer Name', required=True, widget=forms.widgets.Textarea(attrs={'class': 'beerName'}))
     rating = forms.CharField(label='Rating', required=True, widget=forms.widgets.Textarea(attrs={'class': 'beerRating'}))
 
     def is_valid(self):
@@ -47,4 +46,4 @@ class BeerForm(forms.ModelForm):
  
     class Meta:
         model = Beer
-        exclude = ('user',)
+        exclude = ('user','name')

@@ -40,10 +40,10 @@ def getNewName(value):
 							info['labelMedium'] = defaultImage
 							return "Name: " + info['name']
 
-	return getName(value)
+	return getNewName(value)
 
 @register.filter
-def getNewName(value):
+def getName(value):
 	return info['name']
 
 @register.filter

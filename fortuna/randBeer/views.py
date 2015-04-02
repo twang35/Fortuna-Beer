@@ -67,12 +67,13 @@ def signup(request):
 			return index(request, user_form=user_form)
 	return redirect('/')
 
-def submit(request):
+def rate(request):
     if request.method == "POST":
         beer_form = BeerForm(data=request.POST)
         next_url = request.POST.get("next_url", "/")
         if beer_form.is_valid():
             beer = beer_form.save(commit=False)
+            beer.name = request.POST.get("beer_name")
             beer.user = request.user
             beer.save()
             return redirect(next_url)
