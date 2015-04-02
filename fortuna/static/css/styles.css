@@ -216,7 +216,7 @@ a {
 
 .column {
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     *zoom:1;
 }
 
