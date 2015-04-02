@@ -41,9 +41,11 @@
 					{% endblock %}
 			</div>
 
+			<br><br>
 			<div id="randomBeerLabel">
 				{% block label %}
-					{{value|getLabel}}
+				<img src="{{value|getLabel}}" alt="Beer Label">
+					
 				{% endblock %}
 			</div>
 			
