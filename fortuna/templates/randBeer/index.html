@@ -25,12 +25,11 @@
 			<button id="btnRandBeer" type="button" class="button biggest" onclick="window.location.reload()">Generate Random Beer</button>
 		</div>			
 		<br><br><br>
-		<div class = "nav_line_break">
-		</div>
 
-		<div class="row">    
-	        <div class="col-sm-8">
-				<div id="randomBeerInfo" >
+		<div class="row"> 
+			<div id="randomBeerInfo" >   
+	        	<div class="col-sm-8">
+				
 					<div id="randomBeerName">
 						{% block name %}
 							{{value|getNewName}}
@@ -56,18 +55,17 @@
 							{% endblock %}
 					</div>
 				</div>
+				<div class = "col-sm-4">
+				<div id="randomBeerLabel">
+					{% block label %}
+					<img src="{{value|getLabel}}" alt="Beer Label" class = "pull-right">				
+					{% endblock %}
 
-			</div>
-			<div class = "col-sm-4">
-				<div id = "randomBeerInfo">
-					<div id="randomBeerLabel">
-						{% block label %}
-						<img src="{{value|getLabel}}" alt="Beer Label" class = "pull-right">				
-						{% endblock %}
-
-					</div>
 				</div>
 			</div>
+
+			</div>
+			
 			<div class="row" style="padding: 30px">
 				<h2>Rating</h2>
 				<form action="/rate" method="post">
