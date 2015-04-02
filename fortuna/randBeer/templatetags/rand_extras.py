@@ -19,6 +19,7 @@ def getRand():
 	return requests.get("http://api.brewerydb.com/v2/beer/random?key=5b3814c58c765b0d58b67d3525c4850b&format=json").json()
 
 info = {}
+defaultImage = "../../static/images/defaultImage.png"
 
 @register.filter
 def getName(value):
@@ -32,7 +33,12 @@ def getName(value):
 					info['abv'] = beerInfo['data']['abv']
 					if 'description' in beerInfo['data']:
 						info['description'] = beerInfo['data']['description']
-						return "Name: " + info['name']
+						if 'labels' in beerInfo['data']:
+							info['labelMedium'] = beerInfo['data']['labels']['medium']
+							return "Name: " + info['name']
+						else:
+							info['labelMedium'] = defaultImage
+							return "Name: " + info['name']
 
 	return getName(value)
 
@@ -48,3 +54,7 @@ def getAbv(value):
 @register.filter 
 def getDescription(value):
 	return info['description']
+
+@register.filter 
+def getLabel(value):
+	return info['labelMedium']

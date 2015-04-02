@@ -18,6 +18,7 @@
 
 		<div id="randomBeerInfo" >
 
+			
 			<div id="randomBeerName">
 				{% block name %}
 					{{value|getName}}
@@ -26,7 +27,7 @@
 
 			<div id="randomBeerStyle">
 					{% block style %}
-						{{value1|getStyle}}
+						{{value|getStyle}}
 					{% endblock %}
 			</div>
 			<div id="randomBeerAbv">
@@ -39,6 +40,13 @@
 						{{value|getDescription}}
 					{% endblock %}
 			</div>
+
+			<div id="randomBeerLabel">
+				{% block label %}
+					{{value|getLabel}}
+				{% endblock %}
+			</div>
+			
 		</div>
 	</div>
 </section>
