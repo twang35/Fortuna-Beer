@@ -53,13 +53,32 @@
 				<div id = "randomBeerInfo">
 					<div id="randomBeerLabel">
 						{% block label %}
-						<img src="{{value|getLabel}}" alt="Smiley face" class = "pull-right">				
+						<img src="{{value|getLabel}}" alt="Beer Label" class = "pull-right">				
 						{% endblock %}
 
 					</div>
 				</div>
 			</div>
+			<div style="padding: 30px">
+		<form action="/submit" method="post">
+            {% for field in beer_form %}{% csrf_token %}
+            	{{ field.label }}
+            	{{ field }}
+            {% endfor %}
+            <input type="hidden" value="{{ next_url }}" name="next_url">
+            <input type="submit" value="Rate!">
+        </form>
+        <br>
+        {% for beer in beers %}
+        	<p>
+        		Name: {{ beer.name }}
+        		Rating: {{ beer.rating }}
+        	</p>
+        {% endfor %}
+	</div>
+
 		</div>
 	</div>
 </div>
 {% endblock %}
+

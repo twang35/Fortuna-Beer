@@ -375,6 +375,14 @@ a {
   margin-bottom:0px;
 }
 
+.beerName {
+  color: black;
+}
+
+.beerRating {
+  color: black;
+}
+
 /* center and adjust the sidebar contents on smaller devices */
 @media (max-width: 768px) {
   #sidebar,#sidebar a.logo {

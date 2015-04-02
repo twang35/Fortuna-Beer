@@ -3,18 +3,25 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
-from randBeer.forms import AuthenticateForm, UserCreateForm
+from randBeer.forms import AuthenticateForm, UserCreateForm, BeerForm
 from django.contrib.auth.decorators import login_required
+
+from randBeer.models import Beer
 
 
 # Create your views here.
 
 def index(request, auth_form=None, user_form=None):
 	if request.user.is_authenticated():
+		beer_form = BeerForm()
 		user = request.user
+		beers = Beer.objects.filter(user=user.id).order_by('-creation_date')[:5]
 		return render(request,
 						'index.html',
-						{'user': user,})
+						{'user': user,
+						'beers': beers, 
+						'beer_form': beer_form, 
+						'next_url': '/', })
 	else:
 		auth_form = auth_form or AuthenticateForm()
 		user_form = user_form or UserCreateForm()
@@ -59,3 +66,16 @@ def signup(request):
 		else:
 			return index(request, user_form=user_form)
 	return redirect('/')
+
+def submit(request):
+    if request.method == "POST":
+        beer_form = BeerForm(data=request.POST)
+        next_url = request.POST.get("next_url", "/")
+        if beer_form.is_valid():
+            beer = beer_form.save(commit=False)
+            beer.user = request.user
+            beer.save()
+            return redirect(next_url)
+        else:
+            return public(request, beer_form)
+    return redirect('/')

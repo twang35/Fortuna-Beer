@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'fortuna.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
+    
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', rViews.index, name='index'),
     url(r'^favorites/', rViews.favorites, name='favorites'),
@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^signup$', rViews.signup), 
     url(r'^login$', rViews.login_view),  
     url(r'^logout$', rViews.logout_view), 
+    url(r'^submit$', rViews.submit), 
 )

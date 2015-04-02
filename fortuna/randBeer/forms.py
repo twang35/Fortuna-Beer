@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from randBeer.models import Beer
 
 class UserCreateForm(UserCreationForm):
     email = forms.EmailField(required=True, widget=forms.widgets.TextInput(attrs={'placeholder': 'Email'}))
@@ -32,3 +33,18 @@ class AuthenticateForm(AuthenticationForm):
             if f != '__all__':
                 self.fields[f].widget.attrs.update({'class': 'error', 'value': ''})
         return form
+
+class BeerForm(forms.ModelForm):
+    name = forms.CharField(label='Beer Name', required=True, widget=forms.widgets.Textarea(attrs={'class': 'beerName'}))
+    rating = forms.CharField(label='Rating', required=True, widget=forms.widgets.Textarea(attrs={'class': 'beerRating'}))
+
+    def is_valid(self):
+        form = super(BeerForm, self).is_valid()
+        for f in self.errors.iterkeys():
+            if f != '__all__':
+                self.fields[f].widget.attrs.update({'class': 'error beerText'})
+        return form
+ 
+    class Meta:
+        model = Beer
+        exclude = ('user',)
