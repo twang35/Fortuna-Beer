@@ -336,7 +336,7 @@ a {
     opacity:10%;
 	  text-shadow:1px 0 1px #888888;
     background-color: rgb(77, 47, 0);
-    overflow: hidden;
+    overflow: auto;
 }
 #sidebar a.logo {
   display:block;
