@@ -19,6 +19,14 @@
 					<a class="navbar-brand" href="#">Welcome to Fortuna Beer</a>
 					  
 				</div>
+				<div class="search-bar">
+					<form action="/search/" method="get">
+				    	<label for="search">Your beer: </label>
+				    	<input id="search" type="text" name="search" value="{{ current_beer }}">
+				    	<input type="submit" value="OK">
+					</form>
+				</div>
+
 			</div>
 		</nav>
 		<div class="wrapper" font color = "black">

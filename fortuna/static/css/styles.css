@@ -512,3 +512,7 @@ img {
 .container-fluid {
   height: 50px;
 }
+
+.search-bar {
+  float: right;
+}
