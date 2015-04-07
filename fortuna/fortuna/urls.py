@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from randBeer import views as rViews
 from suggest import views as sViews
+from search import views as bViews
 
 urlpatterns = patterns('',
     # Examples:
@@ -16,5 +17,6 @@ urlpatterns = patterns('',
     url(r'^signup$', rViews.signup), 
     url(r'^login$', rViews.login_view),  
     url(r'^logout$', rViews.logout_view), 
-    url(r'^rate$', rViews.rate), 
+    url(r'^rate$', rViews.rate),
+    url(r'^search/$', bViews.get_name),
 )

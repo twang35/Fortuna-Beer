@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from forms import NameForm
 
 def get_name(request):
     # if this is a POST request we need to process the form data

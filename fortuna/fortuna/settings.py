@@ -33,6 +33,7 @@ TEMPLATE_DEBUG = True
 TEMPLATE_DIRS = ( 
     'templates/randBeer',
     'templates/suggest',
+    'templates/search',
     'templates'
     )
 
