@@ -7,6 +7,7 @@ post '/payload' do
   push = JSON.parse(request.body.read)
   puts "I got some JSON: #{push.inspect}"
 
+
   # test = `ruby ../testing/login.rb`
   # File.open("../testing/watirLog.txt", 'a') { |file| file.write("login.rb: " << test << "\n") }
 
