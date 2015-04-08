@@ -12,7 +12,6 @@ end
 post '/payload' do
   $watirLog = File.open("../testing/watirLog.txt", 'a')
 
-  
   push = JSON.parse(request.body.read)
 
   $watirLog.write(push["commits"][0]["message"] << "\n\n")
