@@ -13,6 +13,7 @@ post '/payload' do
   push = JSON.parse(request.body.read)
 
   $watirLog.write(push["commits"][0]["message"] << "\n\n")
+  
 
   runTest("login.rb")
   runTest("login_logout.rb")
