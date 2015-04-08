@@ -12,9 +12,9 @@ end
 post '/payload' do
   $watirLog = File.open("../testing/watirLog.txt", 'a')
 
-  $watirLog.write(push["commits"][0]["message"] << "\n\n")
+  push = JSON.parse(request.body.read)
 
-  puts "\n\n" << push["commits"][0]["message"] << "\n"
+  $watirLog.write(push["commits"][0]["message"] << "\n\n")
 
   runTest("login.rb")
   runTest("login_logout.rb")
