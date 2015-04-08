@@ -20,6 +20,8 @@ post '/payload' do
 
   $watirLog.write(push["commits"][0]["message"] << "\n\n")
 
+  puts "\n\n" << push["commits"][0]["message"] << "\n"
+
   runTest("login.rb")
   runTest("login_logout.rb")
   runTest("login_randBeer.rb")
