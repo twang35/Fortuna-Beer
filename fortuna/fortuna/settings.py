@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'brewerydb',
     'randBeer',
+    'search',
 )
 
 MIDDLEWARE_CLASSES = (

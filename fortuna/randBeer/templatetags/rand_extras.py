@@ -16,7 +16,7 @@ def getBeer(value):
 	return value['data']['available']
 
 def getRand():
-	return requests.get("http://api.brewerydb.com/v2/beer/random?key=5b3814c58c765b0d58b67d3525c4850b&format=json").json()
+	return requests.get("http://api.brewerydb.com/v2/beer/random?key=" + apikey +"&format=json").json()
 
 info = {}
 defaultImage = "../../static/images/defaultImage.png"
