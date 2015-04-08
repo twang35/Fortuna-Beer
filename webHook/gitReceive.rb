@@ -2,6 +2,7 @@ require 'sinatra'
 require 'json'
 
 set :port, 4321
+set :environment, :production
 
 $watirLog = nil
 
