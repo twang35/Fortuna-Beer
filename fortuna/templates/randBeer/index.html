@@ -66,7 +66,7 @@
 
 			</div>
 			
-			<div class="row" style="padding: 30px">
+			<div id="rating" style="padding: 30px">
 				<h2>Rating</h2>
 				<form action="/rate" method="post">
 		            {% for radio in beer_form.rating %}{% csrf_token %}
