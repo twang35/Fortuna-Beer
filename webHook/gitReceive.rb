@@ -3,18 +3,24 @@ require 'json'
 
 set :port, 4321
 
+$watirLog = File.open("../testing/watirLog.txt", 'a')
+
+def runTest(name)
+	return $watirLog.write("#{name}: " << `ruby ../testing/#{name}` << "\n")
+end
+
 post '/payload' do
   push = JSON.parse(request.body.read)
-  puts "I got some JSON: #{push.inspect}"
 
-  File.open("../testing/watirLog.txt", 'a') { |file| file.write(push["commits"][0]["message"] << "\n\n") } 
+  watirLog.write(push["commits"][0]["message"] << "\n\n")
 
-  test = `ruby ../testing/login.rb`
-  File.open("../testing/watirLog.txt", 'a') { |file| file.write("login.rb: " << test << "\n") }
+  runTest("login.rb")
+  runTest("login_logout.rb")
+  runTest("login_randBeer.rb")
+  runTest("login_rate.rb")
+  runTest("randBeer.rb")
+  
+  watirLog.write("=====\n\n\n")
 
-  test = `ruby ../testing/login-logout.rb`
-  File.open("../testing/watirLog.txt", 'a') { |file| file.write("login-logout.rb: " << test << "\n") }
-
-
-  File.open("../testing/watirLog.txt", 'a') { |file| file.write("=====\n\n\n") }
+  watirLog.close
 end
