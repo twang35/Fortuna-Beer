@@ -24,11 +24,13 @@ defaultImage = "../../static/images/defaultImage.png"
 @register.filter
 def getResults(value):
     beerInfos = searchByName(value)
-    beerData = beerInfos["data"]
-    names = []
-    for beerInfo in beerData:
-        names.append(beerInfo['name'])
-    
+    if beerInfos["status"] == "success":
+        beerData = beerInfos["data"]
+        names = []
+        for beerInfo in beerData:
+            names.append(beerInfo['name'])
+    else:
+        return ""
     return names
 
 #@register.filter

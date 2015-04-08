@@ -9,7 +9,7 @@ def get_name(request):
         form = NameForm(request.GET)
         if form.is_valid():
             searchName = form.cleaned_data['searchBeer']
-            
+#            render(request, 'base.html', {'form': form})
             return render(request, 'search.html', {'form': form,
                                                   'searchName': searchName})
 
