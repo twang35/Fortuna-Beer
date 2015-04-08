@@ -10,6 +10,8 @@ def runTest(name)
 end
 
 post '/payload' do
+  puts `git pull`
+  
   $watirLog = File.open("../testing/watirLog.txt", 'a')
 
   push = JSON.parse(request.body.read)
