@@ -5,6 +5,7 @@ set :port, 4321
 
 $watirLog = nil
 
+
 def runTest(name)
 	return $watirLog.write("#{name}: " << `ruby ../testing/#{name}` << "\n")
 end
