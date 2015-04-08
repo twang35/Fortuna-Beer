@@ -1,4 +1,9 @@
 require 'watir-webdriver'
+require 'headless'
+
+headless = Headless.new
+headless.start
+
 b = Watir::Browser.new
 b.goto 'fortuna.tony-wang.com'
 b.input(:id => 'login-username').wait_until_present
@@ -12,3 +17,5 @@ b.button(:id => 'btnLogOut').wait_until_present
 puts "Success"
 
 b.close
+
+headless.destroy

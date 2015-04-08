@@ -1,9 +1,5 @@
 require 'sinatra'
 require 'json'
-require 'headless'
-
-headless = Headless.new
-headless.start
 
 set :port, 4321
 
@@ -15,8 +11,6 @@ end
 
 post '/payload' do
   $watirLog = File.open("../testing/watirLog.txt", 'a')
-
-  push = JSON.parse(request.body.read)
 
   $watirLog.write(push["commits"][0]["message"] << "\n\n")
 
@@ -32,5 +26,3 @@ post '/payload' do
 
   $watirLog.close
 end
-
-headless.destroy
