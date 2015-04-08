@@ -18,11 +18,11 @@ post '/payload' do
 
   $watirLog.write(push["commits"][0]["message"] << "\n\n")
 
-  runTest("login.rb")
-  runTest("login_logout.rb")
-  runTest("login_randBeer.rb")
-  runTest("login_rate.rb")
-  runTest("randBeer.rb")
+  # runTest("login.rb")
+  # runTest("login_logout.rb")
+  # runTest("login_randBeer.rb")
+  # runTest("login_rate.rb")
+  # runTest("randBeer.rb")
   
   $watirLog.write("=====\n\n\n")
 
