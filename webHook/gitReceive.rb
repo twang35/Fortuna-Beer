@@ -1,5 +1,9 @@
 require 'sinatra'
 require 'json'
+require 'headless'
+
+headless = Headless.new
+headless.start
 
 set :port, 4321
 
@@ -26,3 +30,5 @@ post '/payload' do
 
   $watirLog.close
 end
+
+headless.destroy
