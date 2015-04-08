@@ -12,7 +12,7 @@ end
 post '/payload' do
   push = JSON.parse(request.body.read)
 
-  watirLog.write(push["commits"][0]["message"] << "\n\n")
+  $watirLog.write(push["commits"][0]["message"] << "\n\n")
 
   runTest("login.rb")
   runTest("login_logout.rb")
@@ -20,7 +20,7 @@ post '/payload' do
   runTest("login_rate.rb")
   runTest("randBeer.rb")
   
-  watirLog.write("=====\n\n\n")
+  $watirLog.write("=====\n\n\n")
 
-  watirLog.close
+  $watirLog.close
 end
