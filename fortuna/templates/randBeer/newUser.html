@@ -2,6 +2,27 @@
 
 {% load rand_extras %}
 
+{% block navbar %}
+	<form class="navbar-form navbar-left" role="search">
+		<div class="form-group">
+			<div class="nav-middle-bar">
+				<form action="/search/" method="get">
+					{{ search_form }}
+					<input type="submit" class="button" value="search">
+				</form>
+			</div>
+		</div>
+	</form>
+	<div class="nav navbar-nav navbar-right nav-middle-bar">
+		<form action="/login" method="post" id="loginForm">{% csrf_token %}
+	        {% for field in auth_form %}
+	        	{{ field }}
+	        {% endfor %}
+	        <input class="form-login" type="submit" id="btnLogIn" value="Log In">
+    	</form>
+	</div>
+{% endblock %}
+
 {% block login %}
 
 		<div class="nav">
@@ -34,13 +55,6 @@
 			</form>
 		</div>
 		<div class = "nav_center">
-			<form action="/login" method="post" id="loginForm">{% csrf_token %}
-		        {% for field in auth_form %}
-		        	{{ field }}
-		        {% endfor %}
-			    <br><br>
-		        <input type="submit" id="btnLogIn" value="Log In">
-	    	</form>
 		</div>
 {% endblock %}
 

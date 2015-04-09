@@ -28,25 +28,8 @@
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="main-nav">
-		      <ul class="nav navbar-nav">
-		        <li><a href="/">Home</a></li>
-		        <li class="navbar-before-search"><a href="#">Beer Profile</a></li>
-		      </ul>
-		      <form class="navbar-form navbar-left" role="search">
-		        <div class="form-group">
-		          <div class="nav-middle-bar">
-					<form action="/search/" method="get">
-				    	{{ search_form }}
-				    	<input type="submit" class="button" value="search">
-					</form>
-				  </div>
-		        </div>
-		      </form>
-		      <div class="nav navbar-nav navbar-right nav-middle-bar">
-		        <form action = "/logout">
-                	<input type="submit" class = "button" id="btnLogOut" value="Log Out">
-                </form>
-		      </div>
+		      {% block navbar %}
+		      {% endblock %}
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
