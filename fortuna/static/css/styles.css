@@ -24,8 +24,10 @@ body {
 
 .nav-middle-bar {
   height: 100%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  display: -webkit-box;
+  -webkit-box-align: center;
   margin-right: 0px;
   margin-left: 0px;
 }
@@ -532,7 +534,7 @@ img {
 }
 
 .form-signup {
-  margin: 10px 0px;
+  margin: 8px 0px;
   display: block;
   width: 100%;
   height: 34px;
@@ -552,7 +554,7 @@ img {
 }
 
 .form-login {
-  margin: 10px 10px 10px 0px;
+  margin: 8px 10px 8px 0px;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
@@ -570,7 +572,7 @@ img {
 }
 
 .form-search {
-  margin: 10px 10px 10px 0px;
+  margin: 8px 10px 8px 0px;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;

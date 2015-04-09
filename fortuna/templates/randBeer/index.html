@@ -7,21 +7,14 @@
 		<li><a href="/">Home</a></li>
 		<li class="navbar-before-search"><a href="#">Beer Profile</a></li>
 	</ul>
-	<form class="navbar-form navbar-left" role="search">
-		<div class="form-group">
-			<div class="nav-middle-bar">
-				<form action="/search/" method="get">
-					{{ search_form }}
-					<input type="submit" class="button" value="search">
-				</form>
-			</div>
-		</div>
+	<form action="/search/" method="get" class="navbar-form navbar-left nav-middle-bar form-group" role="search">
+		{{ search_form }}
+		<input type="submit" class="button" value="search">
 	</form>
-	<div class="nav navbar-nav navbar-right nav-middle-bar">
-		<form action = "/logout">
-			<input type="submit" class = "button" id="btnLogOut" value="Log Out">
-		</form>
-	</div>
+	
+	<form class="navbar-form navbar-right nav-middle-bar form-group" action = "/logout">
+		<input type="submit" class = "button" id="btnLogOut" value="Log Out">
+	</form>
 {% endblock %}
 
 {% block login %}
