@@ -4,17 +4,16 @@ from forms import NameForm
 
 def get_name(request):
 
-    if request.method == 'GET':
-        # create a form instance and populate it with data from the request:
-        form = NameForm(request.GET)
-        if form.is_valid():
-            searchName = form.cleaned_data['searchBeer']
-#            render(request, 'base.html', {'form': form})
-            return render(request, 'search.html', {'form': form,
-                                                  'searchName': searchName})
+	if request.method == 'GET':
+		# create a form instance and populate it with data from the request:
+		search_form = NameForm(request.GET)
+		if search_form.is_valid():
+			searchName = search_form.cleaned_data['searchBeer']
+			return render(request, 'search.html', {'search_form': search_form,
+													'searchName': searchName})
 
-    else:
-        form = NameForm()
-        
+	else:
+		search_form = NameForm()
+		
 
-    return render(request, 'search.html', {'form': form})
+	return render(request, 'search.html', {'search_form': search_form})

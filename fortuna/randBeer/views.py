@@ -1,9 +1,9 @@
-
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from randBeer.forms import AuthenticateForm, UserCreateForm, BeerForm
+from search.forms import NameForm
 from django.contrib.auth.decorators import login_required
 
 from randBeer.models import Beer
@@ -12,6 +12,7 @@ from randBeer.models import Beer
 # Create your views here.
 
 def index(request, auth_form=None, user_form=None):
+	search_form = NameForm()
 	if request.user.is_authenticated():
 		beer_form = BeerForm()
 		user = request.user
@@ -21,6 +22,7 @@ def index(request, auth_form=None, user_form=None):
 						{'user': user,
 						'beers': beers, 
 						'beer_form': beer_form, 
+						'search_form': search_form,
 						'next_url': '/', })
 	else:
 		auth_form = auth_form or AuthenticateForm()
@@ -29,7 +31,8 @@ def index(request, auth_form=None, user_form=None):
 		return render(request,
 				'newUser.html',
 				{'auth_form': auth_form,
-				'user_form': user_form, })
+				'user_form': user_form, 
+				'search_form': search_form,})
 
 
 def favorites(request):
