@@ -11,7 +11,7 @@ def runTest(name)
 end
 
 post '/payload' do
-  puts `git pull`
+  pull = `git pull`
   
   $watirLog = File.open("../testing/watirLog.txt", 'a')
 
@@ -19,6 +19,7 @@ post '/payload' do
 
   $watirLog.write(push["commits"][0]["message"] << "\n\n")
 
+  $watirLog.write(pull << "\n\n")
   # runTest("login.rb")
   # runTest("login_logout.rb")
   # runTest("login_randBeer.rb")
