@@ -3,24 +3,18 @@
 {% load rand_extras %}
 
 {% block navbar %}
-	<form class="navbar-form navbar-left" role="search">
-		<div class="form-group">
-			<div class="nav-middle-bar">
-				<form action="/search/" method="get">
-					{{ search_form }}
-					<input type="submit" class="button" value="search">
-				</form>
-			</div>
-		</div>
+	<form class="navbar-form navbar-left form-group nav-middle-bar" role="search">
+		<form action="/search/" method="get">
+			{{ search_form }}
+			<input type="submit" class="button" value="search">
+		</form>
 	</form>
-	<div class="nav navbar-nav navbar-right nav-middle-bar">
-		<form action="/login" method="post" id="loginForm">{% csrf_token %}
-	        {% for field in auth_form %}
-	        	{{ field }}
-	        {% endfor %}
-	        <input class="form-login" type="submit" id="btnLogIn" value="Log In">
-    	</form>
-	</div>
+	<form class="navbar-nav navbar-right nav-middle-bar" action="/login" method="post">{% csrf_token %}
+        {% for field in auth_form %}
+        	{{ field }}
+        {% endfor %}
+        <input type="submit" id="btnLogIn" value="Log In">
+	</form>
 {% endblock %}
 
 {% block login %}
