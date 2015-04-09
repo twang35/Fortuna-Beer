@@ -17,6 +17,7 @@ def index(request, auth_form=None, user_form=None):
 		beer_form = BeerForm()
 		user = request.user
 		beers = Beer.objects.filter(user=user.id).order_by('-creation_date')[:5]
+
 		return render(request,
 						'index.html',
 						{'user': user,
@@ -29,7 +30,7 @@ def index(request, auth_form=None, user_form=None):
 		user_form = user_form or UserCreateForm()
 		
 		return render(request,
-				'newUser.html',
+				'base.html',
 				{'auth_form': auth_form,
 				'user_form': user_form, 
 				'search_form': search_form,})
