@@ -29,19 +29,7 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="main-nav">
 		      {% block navbar %}
-				<ul class="nav navbar-nav">
-					<li><a href="/">Home</a></li>
-					<li class="navbar-before-search"><a href="#">Beer Profile</a></li>
-				</ul>
-				<form action="/search/" method="get" class="navbar-form navbar-left nav-middle-bar form-group" role="search">
-					{{ search_form }}
-					<input type="submit" class="button" value="search">
-				</form>
-
-				<form class="navbar-form navbar-right nav-middle-bar form-group" action = "/logout">
-					<input type="submit" class = "button" id="btnLogOut" value="Log Out">
-				</form>
-			{% endblock %}
+		      {% endblock %}
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
@@ -60,36 +48,11 @@
 								{% endblock %}
 							</div>
 						</div>
-						
-						<div id="rating" style="padding: 30px">
-				<h2>Rating</h2>
-				<form action="/rate" method="post">
-		            {% for radio in beer_form.rating %}{% csrf_token %}
-						<div class="myradio">
-						    {{ radio }}
-						</div>
-					{% endfor %}
-		            <input type="hidden" value="{{ next_url }}" name="next_url">
-		            <input type="hidden" name="beer_name">
-		            <input id="btnRate" type="submit" value="Rate!">
-		        </form>
-			</div>
-						
 					</div>
 
 		            <div class="column col-sm-3" id="sidebar">
 		            	{% block login %}
-
-
-							<h1>Recently Rated</h1>
-							{% for beer in beers %}
-								<p>
-									Name: {{ beer.name }}
-									<br>
-									Rating: {{ beer.rating }}
-								</p>
-							{% endfor %}
-						{% endblock %}
+		                {% endblock %}
 		            </div>
 		        </div>
 		    </div>
