@@ -22,12 +22,44 @@ body {
   background-color: rgb(60, 16, 3);
 }
 
+.nav-middle-bar {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.navbar-form {
+  margin: 0px;
+  padding: 0px;
+}
+
 .navbar-default .navbar-brand {
   color: white;
 }
 
+.navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
   color: white;
+}
+
+.navbar-default .navbar-nav>li>a:focus, 
+.navbar-default .navbar-nav>li>a:hover {
+  color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: #e7e7e7;
+  background-color: rgb(60, 16, 3);
+}
+
+.navbar-before-search {
+  padding-right: 30px;
 }
 
   input[type="submit"],
@@ -50,13 +82,15 @@ body {
     color: #ffffff !important;
     cursor: pointer;
     display: inline-block;
+    font-size: 14px;
     font-weight: 400;
-    height: 2.85em;
-    line-height: 2.8em;
-    padding: 0 2em;
+    line-height: 1.42857143;
+    padding: 6px 12px;
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
+    margin-bottom: 0;
+    vertical-align: middle;
   }
 
     input[type="submit"]:hover,
@@ -538,7 +572,7 @@ img {
 }
 
 .form-search {
-  margin: 10px 0px;
+  margin: 10px 10px 10px 0px;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
@@ -557,13 +591,6 @@ img {
 
 .container-fluid {
   height: 50px;
-}
-
-.search-bar {
-  float: right;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
 }
 
 input, button {
