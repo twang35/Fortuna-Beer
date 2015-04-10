@@ -2,7 +2,18 @@
 
 {% load search_extras %}
 
+{% block login %}
+	{{ block.super }}
 
+	<h1>Recently Rated</h1>
+	{% for beer in beers %}
+    	<p>
+    		Name: {{ beer.name }}
+    		<br>
+    		Rating: {{ beer.rating }}
+    	</p>
+    {% endfor %}
+{% endblock %}
 
 {% block main %}
 <!-- Banner -->
@@ -15,24 +26,38 @@
 		</div>			
 		<br><br><br>
 
-		<div class="outerBlock"> 
+		<div class="row"> 
 			<div id="randomBeerInfo" >   
-				    <div id="">
+	        	<div class="col-sm-8">
+				    <div id="test">
 						{% block test %}
-							"{{searchName}}" returns following results:
+							{{searchName}}
 						{% endblock %}
 					</div>
 					<br>
                     
-					<div id="searchBeerName">
+					<div id="randomBeerName">
 						{% block name %}
 							{{searchName|getResults}}
 						{% endblock %}
 					</div>
 					
+			</div>
 
 			</div>
 			
+			<div class="row" style="padding: 30px">
+				<h2>Rating</h2>
+				<form action="/rate" method="post">
+		            {% for radio in beer_form.rating %}{% csrf_token %}
+						<div class="myradio">
+						    {{ radio }}
+						</div>
+					{% endfor %}
+		            <input type="hidden" value="{{ next_url }}" name="next_url">
+		            <input id="btnRate" type="submit" value="Rate!">
+		        </form>
+			</div>
 		</div>
 	</div>
 </div>
