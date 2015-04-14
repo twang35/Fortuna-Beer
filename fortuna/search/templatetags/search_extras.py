@@ -21,7 +21,7 @@ def searchByName(value):
 info = {}
 defaultImage = "../../static/images/defaultImage.png"
 
-@register.filter
+@register.assignment_tag
 def getResults(value):
     beerInfos = searchByName(value)
     if beerInfos["status"] == "success":

@@ -46,14 +46,17 @@
 	        	<div class="col-sm-8">
 				    <div id="test">
 						{% block test %}
-							{{searchName}}
+						Searching Results for <strong>{{searchName}}</strong>
 						{% endblock %}
 					</div>
 					<br>
                     
 					<div id="searchBeerName">
 						{% block name %}
-							{{searchName|getResults}}
+							{% getResults searchName as names %}
+							{% for name in names %}
+							<ul><a href="detail.html">{{name}}</a></ul>
+							{%endfor%}
 						{% endblock %}
 					</div>
 					
