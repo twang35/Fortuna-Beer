@@ -2,6 +2,21 @@
 
 {% load search_extras %}
 
+{% block navbar %}
+	<ul class="nav navbar-nav">
+		<li><a href="/">Home</a></li>
+		<li class="navbar-before-search"><a href="#">Beer Profile</a></li>
+	</ul>
+	<form action="/search/" method="get" class="navbar-form navbar-left nav-middle-bar form-group" role="search">
+		{{ search_form }}
+		<input type="submit" class="button" value="search">
+	</form>
+	
+	<form class="navbar-form navbar-right nav-middle-bar form-group" action = "/logout">
+		<input type="submit" class = "button" id="btnLogOut" value="Log Out">
+	</form>
+{% endblock %}
+
 {% block login %}
 	{{ block.super }}
 
@@ -36,13 +51,13 @@
 					</div>
 					<br>
                     
-					<div id="randomBeerName">
+					<div id="searchBeerName">
 						{% block name %}
 							{{searchName|getResults}}
 						{% endblock %}
 					</div>
 					
-			</div>
+				</div>
 
 			</div>
 			
