@@ -49,6 +49,7 @@ $(document).ready(function(){
    		$.get('/suggest/', {beerStyle: style}, function(data){
 			beerName = data.name;
 			beerStyle = data.style;
+			beerID = data.id;
 			beerAbv = data.abv;
 			if(data.hasOwnProperty('description')) {
 		    	beerDescription = data.description;
@@ -56,7 +57,7 @@ $(document).ready(function(){
 			else {
 				beerDescription = "Beer description unavailable."
 			}
-            $('#suggestName').html("<strong>" + beerName + "<strong>");
+            $('#suggestName').html('<strong><a href="../'+ beerID + '/">' + beerName + '</a></strong>');
 			$('#suggestDescription').html(beerDescription);
     	});
    	});

@@ -46,7 +46,7 @@
 				<div class = "col-md-4">
 					<div id="randomBeerLabel">
 						{% block label %}
-						<img src="{{value|getLabel}}" alt="Beer Label" class = "pull-right" width="100%">				
+							<img src="{{value|getLabel}}" alt="Beer Label" class = "pull-right" width="100%">
 						{% endblock %}
 
 					</div>
@@ -99,6 +99,7 @@
 						</div>
 					{% endfor %}
 		            <input type="hidden" value="{{ next_url }}" name="next_url">
+		            <input type="hidden" value="{{ value|getName }}" name="beer_name">
 		            <input id="btnRate" type="submit" value="Rate!">
 		        </form>
 			</div>
