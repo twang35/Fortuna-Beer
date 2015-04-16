@@ -45,6 +45,9 @@
 		{{value|getNewName}}
 			<div id="randomBeerInfo" >   
 				<div class = "row-beerinfo">
+					{% block beer %}
+						{{value|getNewName}}
+					{% endblock %}
 					<div class = "col-md-4">
 						<div id="randomBeerLabel">
 							{% block label %}
@@ -81,7 +84,9 @@
 						</div>
 					</div>
 				</div>
-			
+				<div id="test">
+					Test
+				</div>
 				<div id="rating" style="padding: 30px">
 					<h2>Rating</h2>
 					<form action="/rate" method="post">
