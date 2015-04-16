@@ -37,7 +37,7 @@
 	<div class="actions">
 		<br>
 		<div class="main_beerbutton" id="randomButton">
-			<button id="btnRandBeer" type="button" class="button biggest" onclick="window.location.reload()">Generate Random Beer</button>
+			<button id="btnRandBeer" type="button" class="button biggest" onclick="">Generate Random Beer</button>
 		</div>			
 		<br><br><br>
 
@@ -76,16 +76,12 @@
 							{% endblock %}
 						</div>
 						<br>
-						Description: 
 						<div id="randomBeerDescription" class = "pull-left">
 							{% block description %}
 								{{value|getDescription}}
 							{% endblock %}
 						</div>
 					</div>
-				</div>
-				<div id="test">
-					Test
 				</div>
 				<div id="rating" style="padding: 30px">
 					<h2>Rating</h2>

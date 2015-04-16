@@ -34,6 +34,10 @@ body {
   width: 90px;
 }
 
+#btnLogOut {
+  margin: 8px 0px;
+}
+
 .navbar-form {
   margin: 0px;
   padding: 0px;
@@ -166,7 +170,7 @@ body {
     input[type="reset"].biggest,
     input[type="button"].biggest,
     .button.biggest {
-      font-size: 2.2em;
+      font-size: 1.9em;
       background-color: transparent;
       border: 1px solid #ffffff;
     }
