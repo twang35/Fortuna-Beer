@@ -6,7 +6,12 @@ $(document).ready(function(){
 			beerName = data.name;
 			beerStyle = data.style;
 			beerAbv = data.abv;
-			beerDescription = data.description;
+			if(data.hasOwnProperty('description')) {
+		    	beerDescription = data.description;
+		    }
+			else {
+				beerDescription = "Beer description unavailable."
+			}
             $('#suggestName').html("<strong>" + beerName + "<strong>");
 			$('#suggestDescription').html(beerDescription);
     	});
