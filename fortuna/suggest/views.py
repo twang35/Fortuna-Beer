@@ -25,8 +25,8 @@ def getSuggestion(request):
 	# return HttpResponse(response % user_id)
 	
 	if request.method == 'GET':
-		name = request.GET['beerStyle']
-		beerInfos = searchByName(name)
+		style = request.GET['beerStyle']
+		beerInfos = searchByStyle(style)
 		totalResults = beerInfos['totalResults']
 		random = randrange(0, 30)
 		if 'data' in beerInfos:
@@ -40,5 +40,5 @@ def getSuggestion(request):
 		
 	return HttpResponse(random)
 
-def searchByName(value):
+def searchByStyle(value):
 	return requests.get("http://api.brewerydb.com/v2/search?type=beer&q=" + value + "&key=" + apikey +"&format=json").json()

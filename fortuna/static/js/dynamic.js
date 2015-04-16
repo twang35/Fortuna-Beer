@@ -19,12 +19,26 @@ $(document).ready(function(){
 
     $('#btnRandBeer').click(function(){
 		var name;
-		name = $('#randomBeerStyle').html()
+		name = $('#randomBeerStyle').html();
+
+		// $(function () {
+		//     $('#loading').html('<div class="loader">Loading...</div>');
+		// }());
+
+		// $(function() {
+		//     $(".changepass").click(function() {
+		//     	$("#dvloader").show();
+		//     	$(".block1").load("views/changepass.template.php", function(){ $("#dvloader").hide(); });
+		//     	return false;
+		//     });
+		// });
 
 		$.ajax({
 		  url: 'http://54.172.157.49/proxy.php',
+		  beforeSend: function() { $('#loading').show(); },
 		  dataType: 'jsonp',
 		  success: function(json){
+		  	$('#loading').hide();
 		    $('#randomBeerName').html( json.data.name );
 		    
 		    if(json.data.hasOwnProperty('style')) {
@@ -45,7 +59,7 @@ $(document).ready(function(){
 		    	$('#randomBeerDescription').html( 'Description: '+json.data.description );
 		    }
 		    else {
-		    	$('#randomBeerAbv').html( 'Description: missing');
+		    	$('#randomBeerDescription').html( 'Description: missing');
 		    }
 		    
 		    if(json.data.hasOwnProperty('labels')){
@@ -57,5 +71,9 @@ $(document).ready(function(){
 		    $('input[name=beer_name]').val(json.data.name);
 		  }
 		});
+
+		// $(function () {
+		//     $('#loading').html('');
+		// }());
 	});
 });
