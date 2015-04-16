@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    $('#btnRandBeer').click(function(){
-		var name;
-		name = $('#randomBeerStyle').html()
-   		$.get('/suggest/', {beerName: name}, function(data){
+    $('#btnSuggestBeer').click(function(){
+		var style;
+		style = $('#randomBeerStyle').text();
+   		$.get('/suggest/', {beerStyle: style}, function(data){
                $('#test').html(data);
     	});
 

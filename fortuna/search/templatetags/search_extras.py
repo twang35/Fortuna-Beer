@@ -55,14 +55,14 @@ def findBeer(value, arg):
 @register.filter
 def getName(value):
     if 'name' in info:
-        return "Name: " + info['name']
+        return info['name']
     else:
         return ''
 
 @register.filter
 def getStyle(value):
     if 'style' in info:
-        return "Style: " + info['style']
+        return info['style']
     else:
         return ''
 

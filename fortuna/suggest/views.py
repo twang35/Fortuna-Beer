@@ -1,8 +1,16 @@
 from django.shortcuts import render
-
+from django import template
 from django.http import HttpResponse
+from random import randrange
+import requests
+import json
 
+register = template.Library()
 
+apikey = '5b3814c58c765b0d58b67d3525c4850b'
+
+from brewerydb.brewerydb import *
+BreweryDb.configure(apikey)
 
 # Create your views here.
 
@@ -14,8 +22,23 @@ def suggest(request):
 def getSuggestion(request):
 	# reponse = "You are accessing favorite beers with user %s."
 	# return HttpResponse(response % user_id)
+	
 	if request.method == 'GET':
-		name = request.GET['beerName']
+		name = request.GET['beerStyle']
+		beerInfos = searchByName(name)
+		totalResults = beerInfos['totalResults']
+		random = randrange(0, totalResults)
+		if 'data' in beerInfos:
+			beerData = beerInfos["data"][30]
+			result = beerData["name"]
+			return HttpResponse(result)
+           
+        else: 
+			result = "Nothing Found"
+			return HttpResponse(result)
+           
 		
-	return HttpResponse(name)
+	return HttpResponse(random)
 
+def searchByName(value):
+	return requests.get("http://api.brewerydb.com/v2/search?type=beer&q=" + value + "&key=" + apikey +"&format=json").json()
