@@ -3,12 +3,6 @@
 {% load rand_extras %}
 
 {% block navbar %}
-	<form class="navbar-form navbar-left form-group nav-middle-bar" role="search">
-		<form action="/search/" method="get">
-			{{ search_form }}
-			<input type="submit" class="button" value="search">
-		</form>
-	</form>
 	<form class="navbar-nav navbar-right nav-middle-bar" action="/login" method="post">{% csrf_token %}
         {% for field in auth_form %}
         	{{ field }}

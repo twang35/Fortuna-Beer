@@ -22,7 +22,6 @@ body {
 }
 
 .nav-middle-bar {
-  height: 100%;
   display: flex;
   align-items: center;
   display: -webkit-box;

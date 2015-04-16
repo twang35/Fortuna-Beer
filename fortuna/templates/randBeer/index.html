@@ -42,7 +42,7 @@
 		<br><br><br>
 
 		<!-- <div class="row">  -->
-		
+		{{value|getNewName}}
 			<div id="randomBeerInfo" >   
 				<div class = "row-beerinfo">
 					<div class = "col-md-4">
@@ -57,7 +57,7 @@
 				
 						<div id="randomBeerName" class = "pull-left">
 							{% block name %}
-								{{value|getNewName}}
+								{{value|getName}}
 							{% endblock %}
 						</div>
 						<br>
