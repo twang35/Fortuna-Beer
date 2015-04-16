@@ -41,60 +41,62 @@
 		</div>			
 		<br><br><br>
 
-		<div class="row"> 
+		<!-- <div class="row">  -->
+		
 			<div id="randomBeerInfo" >   
-	        	<div class="col-sm-8">
-				
-					<div id="randomBeerName">
-						{% block name %}
-							{{value|getNewName}}
-						{% endblock %}
+				<div class = "row-beerinfo">
+					<div class = "col-md-4">
+						<div id="randomBeerLabel">
+							{% block label %}
+								<img src="{{value|getLabel}}" alt="Beer Label" class = "pull-right" width = "100%">				
+							{% endblock %}
+
+						</div>
 					</div>
-					<br>
-					<div id="randomBeerStyle">
+	        		<div class="col-md-8">
+				
+						<div id="randomBeerName" class = "pull-left">
+							{% block name %}
+								{{value|getNewName}}
+							{% endblock %}
+						</div>
+						<br>
+						<div id="randomBeerStyle" class = "pull-left">
 							{% block style %}
 								{{value1|getStyle}}
 							{% endblock %}
-					</div>
-					<br>
-					<div id="randomBeerAbv">
+						</div>
+						<br>
+						<div id="randomBeerAbv" class = "pull-left">
 							{% block abv %}
 								{{value|getAbv}}
 							{% endblock %}
-					</div>
-					<br>
-					Description: 
-					<div id="randomBeerDescription" >
+						</div>
+						<br>
+						Description: 
+						<div id="randomBeerDescription" class = "pull-left">
 							{% block description %}
 								{{value|getDescription}}
 							{% endblock %}
+						</div>
 					</div>
 				</div>
-				<div class = "col-sm-4">
-				<div id="randomBeerLabel">
-					{% block label %}
-					<img src="{{value|getLabel}}" alt="Beer Label" class = "pull-right">				
-					{% endblock %}
-
+			
+				<div id="rating" style="padding: 30px">
+					<h2>Rating</h2>
+					<form action="/rate" method="post">
+			            {% for radio in beer_form.rating %}{% csrf_token %}
+							<div class="myradio">
+							    {{ radio }}
+							</div>
+						{% endfor %}
+			            <input type="hidden" value="{{ next_url }}" name="next_url">
+			            <input type="hidden" value="{{ value|getName }}" name="beer_name">
+			            <input id="btnRate" type="submit" value="Rate!">
+			        </form>
 				</div>
 			</div>
-
-			</div>
-			
-			<div id="rating" style="padding: 30px">
-				<h2>Rating</h2>
-				<form action="/rate" method="post">
-		            {% for radio in beer_form.rating %}{% csrf_token %}
-						<div class="myradio">
-						    {{ radio }}
-						</div>
-					{% endfor %}
-		            <input type="hidden" value="{{ next_url }}" name="next_url">
-		            <input type="hidden" value="{{ value|getName }}" name="beer_name">
-		            <input id="btnRate" type="submit" value="Rate!">
-		        </form>
-			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 </div>
 {% endblock %}
