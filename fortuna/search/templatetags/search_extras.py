@@ -50,6 +50,8 @@ def findBeer(value, arg):
         info['description'] = beerInfo['description']
     if 'labels' in beerInfo:
         info['labels'] = beerInfo['labels']['medium']
+    else:
+        info['labels'] = "../../static/images/defaultImage.png"
     return ""
 
 @register.filter
