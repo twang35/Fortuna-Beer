@@ -44,7 +44,74 @@
 		            	<div class="padding">
                    			<div class="full col-sm-9">
 					           	{% block main %}
-									stuff
+									<!-- Banner -->
+									<div id="main" style="background-image:none;">
+
+										<div class="actions">
+											<br>
+											<div class="main_beerbutton" id="randomButton">
+												<button id="btnRandBeer" type="button" class="button biggest" onclick="randBeer()">Generate Random Beer</button>
+											</div>			
+											<br>
+
+											<div style="height: 240px; display: none" id="loading"><div class="loader" >Loading...</div></div>
+
+
+											<div id="randomBeerInfo" >   
+												<div class = "row-beerinfo">
+													
+													<div class = "col-md-4">
+														<div id="randomBeerLabel">
+
+														</div>
+													</div>
+									        		<div class="col-md-8">
+													
+														<h3>
+															<p id="randomBeerName" class = "pull-left">
+															Loading...
+															</p>
+														</h3>
+														<br><br><br>
+														<p id="randomBeerStyle" class = "pull-left">
+
+														</p>
+														<br><br>
+														<p id="randomBeerAbv" class = "pull-left">
+
+														</p>
+														<br><br>
+														<p id="randomBeerDescription" class = "pull-left">
+
+														</p>
+													</div>
+												</div>
+
+												{% block rating %}
+												<div id="rating" style="padding: 30px">
+													<h2>Rating</h2>
+													<form action="/rate" method="post">
+											            {% for radio in beer_form.rating %}{% csrf_token %}
+															<div class="myradio">
+															    {{ radio }}
+															</div>
+														{% endfor %}
+											            <input type="hidden" value="{{ next_url }}" name="next_url">
+											            <input type="hidden" value="" name="beer_name">
+											            <input id="btnRate" type="submit" value="Rate!">
+											        </form>
+												</div>
+												{% endblock %}
+
+											</div>
+
+										</div>
+									</div>
+
+									<script src="{{ STATIC_URL }}js/dynamic.js"></script>
+									<script type="text/javascript">
+										randBeer();
+									</script>
 								{% endblock %}
 							</div>
 						</div>
