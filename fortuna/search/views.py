@@ -57,3 +57,16 @@ def get_name(request):
 					'user_form': user_form, 
 					'search_form': search_form,})
 
+def detail(request, beer_id=""):
+	search_form = NameForm()
+	beer_form = BeerForm()
+	user = request.user
+	beers = Beer.objects.filter(user=user.id).order_by('-creation_date')[:5]
+	return render(request,
+					'detail.html',
+					{'user': user,
+					'beers': beers, 
+					'beer_id': beer_id,
+					'beer_form': beer_form, 
+					'search_form': search_form,
+					'next_url': '/', })

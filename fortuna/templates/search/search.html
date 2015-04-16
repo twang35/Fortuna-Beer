@@ -46,35 +46,26 @@
 	        	<div class="col-sm-8">
 				    <div id="test">
 						{% block test %}
-						Searching Results for <strong>{{searchName}}</strong>
+						Search Results for <strong>{{searchName}}</strong>
 						{% endblock %}
 					</div>
 					<br>
                     
 					<div id="searchBeerName">
 						{% block name %}
-							{% getResults searchName as names %}
-							{% for name in names %}
-							<ul><a href="detail.html">{{name}}</a></ul>
-							{%endfor%}
+							{% getResults searchName as beers %}
+
+							{% if beers == "Nothing Found" %}
+							    {{ beers }}
+							{% else %}
+							    {% for beer in beers %}
+									<ul><a href="../detail/{{beer.1}}/">{{beer.0}}</a></ul>
+								{%endfor%}
+							{% endif %}
+							
 						{% endblock %}
 					</div>
-					
 				</div>
-
-			</div>
-			
-			<div class="row" style="padding: 30px">
-				<h2>Rating</h2>
-				<form action="/rate" method="post">
-		            {% for radio in beer_form.rating %}{% csrf_token %}
-						<div class="myradio">
-						    {{ radio }}
-						</div>
-					{% endfor %}
-		            <input type="hidden" value="{{ next_url }}" name="next_url">
-		            <input id="btnRate" type="submit" value="Rate!">
-		        </form>
 			</div>
 		</div>
 	</div>

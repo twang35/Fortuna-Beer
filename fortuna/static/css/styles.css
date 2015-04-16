@@ -22,7 +22,6 @@ body {
 }
 
 .nav-middle-bar {
-  height: 100%;
   display: flex;
   align-items: center;
   display: -webkit-box;
@@ -265,8 +264,20 @@ a {
     border-radius: 10px
     
 }
+
+.row-beerinfo {
+    overflow: auto;
+    height: auto;
+    margin-left:0;
+    margin-right:0;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(60,16,4,0.8);
+
+}
+
 .row {
-    background-color: rgba(60,16,4, 0.8);
+    background-color: rgba(60,16,4, 1.0);
 }
 
 #rating {
@@ -378,7 +389,7 @@ a {
     background-size: 100% 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
-
+    display: table-row;
     color:#FFFFFF;
 }
 
@@ -407,6 +418,7 @@ a {
 	  text-shadow:1px 0 1px #888888;
     background-color: rgb(60, 16, 3);
     overflow: auto;
+    display: table-row;
 }
 #sidebar a.logo {
   display:block;
@@ -488,7 +500,34 @@ a {
   text-align: center;
 }
 
+@media (max-width: 992px) {
+  .col-md-8 {
+    width: 66.66666667%;
+    float:right;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+    float: left;
+  }
+}
 
+@media (max-width: 625px) {
+  .col-md-4 {
+    margin: 10px;
+    padding: 10px;
+    width: 75%;
+  }
+  .col-md-8 {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    float: left;
+  }
+
+  img {
+    width: 75%;
+  }
+}
 
 /* bootstrap overrides */
 
@@ -522,9 +561,9 @@ small.text-muted {
 
 #randomBeerInfo {
   
-  height: 320px;
+  height: 100%;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   padding-top: 10px;
   padding-bottom: 30px;
 
@@ -534,7 +573,7 @@ small.text-muted {
   width: 100%;
   margin-right: 0px;
   padding-right: 0px;
-  padding-top: 20px;
+
 }
 
 img {
@@ -622,6 +661,7 @@ img {
 
 .container-fluid-main {
   height: 100%;
+  width: 100%;
   border-collapse: collapse;
   display: table;
 }
