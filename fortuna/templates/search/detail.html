@@ -37,7 +37,7 @@
 	<div class="actions">
 		<br>
 		<div class="main_beerbutton" id="randomButton">
-			<button id="btnRandBeer" type="button" class="button biggest" onclick="window.location.reload()">Generate Random Beer</button>
+			<button id="btnRandBeer" type="button" class="button biggest" onclick="location.href = '/';" >Generate Random Beer</button>
 		</div>			
 		<br><br><br>
 		{{value|findBeer:beer_id}}
@@ -52,6 +52,8 @@
 					</div>
 
 				</div>
+				
+				
 	        	<div class="col-md-8">
 				
 					<div id="randomBeerName" class = "pull-left">
@@ -77,6 +79,15 @@
 								{{value|getDescription}}
 							{% endblock %}
 					</div>
+				</div>
+				<div id="suggestionInfo">
+				<button id="btnSuggestBeer" type="button" class="button biggest" >You 					May Like</button>
+				<div id="suggestName">
+					
+				</div>
+				<div id="suggestDescription">
+					
+				</div>
 				</div>
 			
 			<div class="row" style="padding: 30px">

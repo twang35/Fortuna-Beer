@@ -44,7 +44,7 @@ def getNewName(value):
 
 @register.filter
 def getName(value):
-	return "Name: " + info['name']
+	return info['name']
 
 @register.filter
 def getStyle(value):
