@@ -19,5 +19,4 @@ urlpatterns = patterns('',
     url(r'^logout$', rViews.logout_view), 
     url(r'^rate$', rViews.rate),
     url(r'^search/$', bViews.get_name),
-    url(r'^detail/(?P<id>[a-zA-Z0-9]{0,20})/$)', bViews.detail),
 )

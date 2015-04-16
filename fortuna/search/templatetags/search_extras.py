@@ -18,22 +18,20 @@ def getBeer(value):
 def searchByName(value):
 	return requests.get("http://api.brewerydb.com/v2/search?type=beer&q=" + value + "&key=" + apikey +"&format=json").json()
 
+info = {}
+defaultImage = "../../static/images/defaultImage.png"
 
 @register.assignment_tag
 def getResults(value):
     beerInfos = searchByName(value)
     if beerInfos["status"] == "success":
-        if 'data' in beerInfos:
-            beerData = beerInfos["data"]
-            names = []
-            for beerInfo in beerData:
-                names.append((beerInfo['name'], beerInfo['id']))
-        else: 
-            return "Nothing Found"
+        beerData = beerInfos["data"]
+        names = []
+        for beerInfo in beerData:
+            names.append(beerInfo['name'])
     else:
         return ""
     return names
-
 
 #@register.filter
 #def getNewName(value):
