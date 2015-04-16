@@ -662,6 +662,7 @@ img {
 
 .container-fluid-main {
   height: 100%;
+  width: 100%;
   border-collapse: collapse;
   display: table;
 }

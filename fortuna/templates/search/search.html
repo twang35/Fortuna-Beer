@@ -53,28 +53,15 @@
                     
 					<div id="searchBeerName">
 						{% block name %}
-							{% getResults searchName as names %}
-							{% for name in names %}
-							<ul><a href="detail.html">{{name}}</a></ul>
+							{% getResults searchName as beers %}
+
+							{% for beer in beers %}
+							<ul><a href="detail.html/{{beer.1}}/">{{beer.0}}</a></ul>
+
 							{%endfor%}
 						{% endblock %}
 					</div>
-					
 				</div>
-
-			</div>
-			
-			<div class="row" style="padding: 30px">
-				<h2>Rating</h2>
-				<form action="/rate" method="post">
-		            {% for radio in beer_form.rating %}{% csrf_token %}
-						<div class="myradio">
-						    {{ radio }}
-						</div>
-					{% endfor %}
-		            <input type="hidden" value="{{ next_url }}" name="next_url">
-		            <input id="btnRate" type="submit" value="Rate!">
-		        </form>
 			</div>
 		</div>
 	</div>

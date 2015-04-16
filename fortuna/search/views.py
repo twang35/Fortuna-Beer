@@ -57,3 +57,25 @@ def get_name(request):
 					'user_form': user_form, 
 					'search_form': search_form,})
 
+def detail(request, id=""):
+	search_form = NameForm()
+	if request.user.is_authenticated():
+		beer_form = BeerForm()
+		user = request.user
+		beers = Beer.objects.filter(user=user.id).order_by('-creation_date')[:5]
+		return render(request,
+						'index.html',
+						{'user': user,
+						'beers': beers, 
+						'beer_form': beer_form, 
+						'search_form': search_form,
+						'next_url': '/', })
+	else:
+		auth_form = auth_form or AuthenticateForm()
+		user_form = user_form or UserCreateForm()
+		
+		return render(request,
+				'newUser.html',
+				{'auth_form': auth_form,
+				'user_form': user_form, 
+				'search_form': search_form,})
