@@ -673,3 +673,6 @@ form {
   margin-right: 20px;
   margin-left: 20px;
 }
+#randomBeerDescription {
+	min-height: 200px;
+}

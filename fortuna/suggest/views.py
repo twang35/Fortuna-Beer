@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from random import randrange
 import requests
 import json
+from django.http import JsonResponse
 
 register = template.Library()
 
@@ -27,11 +28,10 @@ def getSuggestion(request):
 		name = request.GET['beerStyle']
 		beerInfos = searchByName(name)
 		totalResults = beerInfos['totalResults']
-		random = randrange(0, totalResults)
+		random = randrange(0, 30)
 		if 'data' in beerInfos:
-			beerData = beerInfos["data"][30]
-			result = beerData["name"]
-			return HttpResponse(result)
+			beerData = beerInfos["data"][random]
+			return JsonResponse(beerData)
            
         else: 
 			result = "Nothing Found"

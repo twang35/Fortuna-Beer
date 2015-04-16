@@ -3,7 +3,12 @@ $(document).ready(function(){
 		var style;
 		style = $('#randomBeerStyle').text();
    		$.get('/suggest/', {beerStyle: style}, function(data){
-               $('#test').html(data);
+			beerName = data.name;
+			beerStyle = data.style;
+			beerAbv = data.abv;
+			beerDescription = data.description;
+            $('#suggestName').html("<strong>" + beerName + "<strong>");
+			$('#suggestDescription').html(beerDescription);
     	});
    	});
 
