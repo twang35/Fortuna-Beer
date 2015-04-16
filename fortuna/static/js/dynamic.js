@@ -15,12 +15,36 @@ $(document).ready(function(){
 		  url: 'http://54.172.157.49/proxy.php',
 		  dataType: 'jsonp',
 		  success: function(json){
-		    $('#randomBeerName').html( 'Name: '+json.data.name );
-		    $('#randomBeerStyle').html( 'Style: '+json.data.style.category.name );
-		    $('#randomBeerAbv').html( 'ABV: '+json.data.abv );
-		    $('#randomBeerDescription').html( 'Description: '+json.data.description );
-		    $('#randomBeerLabel').html( '<img src="' + json.data.labels.medium + '" alt="Beer Label" class = "pull-right" width = "100%">');
-
+		    $('#randomBeerName').html( json.data.name );
+		    
+		    if(json.data.hasOwnProperty('style')) {
+		    	$('#randomBeerStyle').html( 'Style: '+json.data.style.category.name );
+		    }
+		    else {
+		    	$('#randomBeerStyle').html( 'Style: missing' );
+		    }
+		    
+		    if(json.data.hasOwnProperty('abv')) {
+		    	$('#randomBeerAbv').html( 'ABV: '+json.data.abv );
+		    }
+		    else {
+		    	$('#randomBeerAbv').html( 'ABV: missing');
+		    }
+		    
+		    if(json.data.hasOwnProperty('description')) {
+		    	$('#randomBeerDescription').html( 'Description: '+json.data.description );
+		    }
+		    else {
+		    	$('#randomBeerAbv').html( 'Description: missing');
+		    }
+		    
+		    if(json.data.hasOwnProperty('labels')){
+			    $('#randomBeerLabel').html( '<img src="' + json.data.labels.medium + '" alt="Beer Label" class = "pull-right" width = "100%">');
+			}
+			else {
+				$('#randomBeerLabel').html( '<img src="../../static/images/defaultImage.png" alt="Beer Label" class = "pull-right" width = "100%">');
+			}
+		    $('input[name=beer_name]').val(json.data.name);
 		  }
 		});
 	});

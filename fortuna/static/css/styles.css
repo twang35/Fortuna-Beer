@@ -280,10 +280,6 @@ a {
 
 }
 
-.row {
-    background-color: rgba(60,16,4, 1.0);
-}
-
 #rating {
     height: auto;
 }
@@ -312,13 +308,12 @@ a {
 .box {
   	bottom: 0; /* increase for footer use */
     left: 0;
-/*    position: absolute;*/
     right: 0;
-    top: 0;
-    /*background-image:url(../images/banner.jpg);*/
+    top: 0;]
     background-size:auto;
     background-attachment:fixed;
     background-repeat: no-repeat;
+    background: rgb(60, 16, 3);
 }
 
 .form-actions {
@@ -393,7 +388,7 @@ a {
     background-size: 100% 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    display: table-row;
+    /*display: table-row;*/
     color:#FFFFFF;
 }
 
@@ -422,7 +417,7 @@ a {
 	  text-shadow:1px 0 1px #888888;
     background-color: rgb(60, 16, 3);
     overflow: auto;
-    display: table-row;
+    /*display: table-row;*/
 }
 #sidebar a.logo {
   display:block;
@@ -476,7 +471,7 @@ a {
     margin-top:30px;
     font-size:26px;
     vertical-align: bottom;
-    display: table-row;
+    /*display: table-row;*/
   }
   #sidebar a.logo {
     font-size:50px;
@@ -485,7 +480,7 @@ a {
     margin-bottom:30px;
   }
   #main{
-    display: table-row;
+    /*display: table-row;*/
   }
   form {
     margin-right: 30px;
