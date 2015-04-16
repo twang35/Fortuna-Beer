@@ -1,3 +1,5 @@
+var randBeer;
+
 $(document).ready(function(){
     $('#btnSuggestBeer').click(function(){
 		var style;
@@ -17,21 +19,9 @@ $(document).ready(function(){
     	});
    	});
 
-    $('#btnRandBeer').click(function(){
+    randBeer = function () {
 		var name;
 		name = $('#randomBeerStyle').html();
-
-		// $(function () {
-		//     $('#loading').html('<div class="loader">Loading...</div>');
-		// }());
-
-		// $(function() {
-		//     $(".changepass").click(function() {
-		//     	$("#dvloader").show();
-		//     	$(".block1").load("views/changepass.template.php", function(){ $("#dvloader").hide(); });
-		//     	return false;
-		//     });
-		// });
 
 		$.ajax({
 		  url: 'http://54.172.157.49/proxy.php',
@@ -71,9 +61,5 @@ $(document).ready(function(){
 		    $('input[name=beer_name]').val(json.data.name);
 		  }
 		});
-
-		// $(function () {
-		//     $('#loading').html('');
-		// }());
-	});
+	};
 });
