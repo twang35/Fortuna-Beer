@@ -56,7 +56,7 @@ def getAbv(value):
 
 @register.filter 
 def getDescription(value):
-	return info['description']
+	return "Description: " + info['description']
 
 @register.filter 
 def getLabel(value):

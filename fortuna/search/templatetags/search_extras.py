@@ -35,43 +35,54 @@ def getResults(value):
     return names
 
 
-#@register.filter
-#def getNewName(value):
-#	beerInfo = searchByName(value)
-#	info['name'] = beerInfo['data']['name']
-#	if 'style' in beerInfo['data']:
-#		if 'category' in beerInfo['data']['style']:
-#			if 'name' in beerInfo['data']['style']['category']:
-#				info['style'] = beerInfo['data']['style']['category']['name']
-#				if 'abv' in beerInfo['data']:
-#					info['abv'] = beerInfo['data']['abv']
-#					if 'description' in beerInfo['data']:
-#						info['description'] = beerInfo['data']['description']
-#						if 'labels' in beerInfo['data']:
-#							info['labelMedium'] = beerInfo['data']['labels']['medium']
-#							return "Name: " + info['name']
-#						else:
-#							info['labelMedium'] = defaultImage
-#							return "Name: " + info['name']
-#
-#	return getNewName(value)
-#
-#@register.filter
-#def getName(value):
-#	return info['name']
-#
-#@register.filter
-#def getStyle(value):
-#	return "Style: " + info['style']
-#
-#@register.filter 
-#def getAbv(value):
-#	return "ABV: " + info['abv'] + "%"
-#
-#@register.filter 
-#def getDescription(value):
-#	return info['description']
-#
-#@register.filter 
-#def getLabel(value):
-#	return info['labelMedium']
+info = {}
+
+@register.filter
+def findBeer(value, arg):
+    beerInfo = requests.get("http://api.brewerydb.com/v2/beer/" + arg + "?key=" + apikey +"&format=json").json()['data']
+    if 'name' in beerInfo:
+        info['name'] = beerInfo['name']
+    if 'name' in beerInfo['style']['category']:
+        info['style'] = beerInfo['style']['category']['name']
+    if 'abv' in beerInfo:
+        info['abv'] = beerInfo['abv']
+    if 'description' in beerInfo:
+        info['description'] = beerInfo['description']
+    if 'labels' in beerInfo:
+        info['labels'] = beerInfo['labels']['medium']
+    return ""
+
+@register.filter
+def getName(value):
+    if 'name' in info:
+        return "Name: " + info['name']
+    else:
+        return ''
+
+@register.filter
+def getStyle(value):
+    if 'style' in info:
+        return "Style: " + info['style']
+    else:
+        return ''
+
+@register.filter 
+def getAbv(value):
+    if 'abv' in info:
+        return "ABV: " + info['abv'] + "%"
+    else:
+        return ''
+
+@register.filter 
+def getDescription(value):
+    if 'description' in info:
+        return info['description']
+    else:
+        return ''
+
+@register.filter 
+def getLabel(value):
+    if 'labels' in info:
+        return info['labels']
+    else:
+        return "../../static/images/defaultImage.png"
