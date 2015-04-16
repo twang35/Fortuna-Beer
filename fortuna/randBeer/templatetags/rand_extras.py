@@ -35,16 +35,16 @@ def getNewName(value):
 						info['description'] = beerInfo['data']['description']
 						if 'labels' in beerInfo['data']:
 							info['labelMedium'] = beerInfo['data']['labels']['medium']
-							return "Name: " + info['name']
+							return ""
 						else:
 							info['labelMedium'] = defaultImage
-							return "Name: " + info['name']
+							return ""
 
 	return getNewName(value)
 
 @register.filter
 def getName(value):
-	return info['name']
+	return "Name: " + info['name']
 
 @register.filter
 def getStyle(value):

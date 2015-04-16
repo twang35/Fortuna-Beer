@@ -45,6 +45,7 @@
 			<button id="btnRandBeer" type="button" class="button biggest" onclick="window.location.reload()">Generate Random Beer</button>
 		</div>			
 		<br><br><br>
+		{{value|getNewName}}
 		<div id="randomBeerInfo">
 			<div class="row-beerinfo">
 				<div class = "col-md-4">
@@ -60,7 +61,7 @@
 				
 					<div id="randomBeerName" class = "pull-left">
 						{% block name %}
-							{{value|getNewName}}
+							{{value|getName}}
 						{% endblock %}
 					</div>
 					<br>
