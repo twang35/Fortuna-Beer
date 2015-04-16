@@ -9,7 +9,6 @@
 html {
    height: 100%;
    font-family:Avenir,'Arial',arial,sans-serif;
-   overflow: hidden;
 }
 
 body {
@@ -452,19 +451,29 @@ a {
   margin
 }
 
+
 /* center and adjust the sidebar contents on smaller devices */
-@media (max-width: 768px) {
+@media (max-width: 935px) {
   #sidebar,#sidebar a.logo {
     text-align:center;
     margin:0 auto;
     margin-top:30px;
     font-size:26px;
+    vertical-align: bottom;
+    display: table-row;
   }
   #sidebar a.logo {
     font-size:50px;
     height:75px;
     width:75px;
     margin-bottom:30px;
+  }
+  #main{
+    display: table-row;
+  }
+  form {
+    margin-right: 30px;
+    margin-left: 30px;
   }
 }
 
@@ -611,10 +620,17 @@ img {
   height: 50px;
 }
 
+.container-fluid-main {
+  height: 100%;
+  border-collapse: collapse;
+  display: table;
+}
+
 input, button {
     vertical-align:middle;
 }
 
 form {
-  margin: 0px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
